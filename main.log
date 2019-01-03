@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  3 JAN 2019 22:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  3 JAN 2019 22:59
 entering extended mode
 **./main.tex
 (main.tex
@@ -1007,7 +1007,7 @@ LaTeX Warning: Unused global option(s):
     [openrightfinal].
 
 (main.aux (content/title.aux) (content/abstract.aux) (content/abbreviations.aux
-) (content/einleitung.aux) (content/grundlagen.aux) (content/eigeneKapitel.aux)
+) (content/einleitung.aux) (content/tests.aux) (content/eigeneKapitel.aux)
 (content/ausblick.aux) (content/fazit.aux) (content/affirmation.aux))
 \openout1 = `main.aux'.
 
@@ -1121,7 +1121,7 @@ LaTeX Info: Redefining \nameref on input line 18.
 \openout2 = `content/title.aux'.
 
  (content/title.tex
-<content/pictures/hfu.jpg, id=57, 1015.795pt x 411.5375pt>
+<content/pictures/hfu.jpg, id=61, 1015.795pt x 411.5375pt>
 File: content/pictures/hfu.jpg Graphic file (type jpg)
 
 <use content/pictures/hfu.jpg>
@@ -1220,24 +1220,20 @@ l.58 \include{content/einleitung}
 
 
 ]
-\openout2 = `content/grundlagen.aux'.
+\openout2 = `content/tests.aux'.
 
- (content/grundlagen.texpdfTeX warning (ext4): destination with the same identi
-fier (name{page.2}) has been already used, duplicate ignored
+ (content/tests.texpdfTeX warning (ext4): destination with the same identifier 
+(name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
-            {Verwendetes Zeugs} [2
+            {Tests} [2
 
 
 
 
 ]
 chapter 2.
-File: content/pictures/hfu.jpg Graphic file (type jpg)
-<use content/pictures/hfu.jpg>
-Package pdftex.def Info: content/pictures/hfu.jpg used on input line 6.
-(pdftex.def)             Requested size: 412.56499pt x 167.14273pt.
 ) [3]
 \openout2 = `content/eigeneKapitel.aux'.
 
@@ -1299,13 +1295,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--16
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
  (main.aux (content/title.aux) (content/abstract.aux)
-(content/abbreviations.aux) (content/einleitung.aux) (content/grundlagen.aux)
+(content/abbreviations.aux) (content/einleitung.aux) (content/tests.aux)
 (content/eigeneKapitel.aux) (content/ausblick.aux) (content/fazit.aux)
 (content/affirmation.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 33792B5F32629230F5C929C6E5BB53E2;778.
+(rerunfilecheck)             Checksum: 8D6A989C1EDD93740B9377135E26F54B;835.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1313,10 +1309,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14329 strings out of 493323
- 221604 string characters out of 3139065
- 544087 words of memory out of 3000000
- 17535 multiletter control sequences out of 15000+200000
+ 14326 strings out of 493323
+ 221523 string characters out of 3139065
+ 545041 words of memory out of 3000000
+ 17533 multiletter control sequences out of 15000+200000
  17119 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,11n,71p,8817b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1328,9 +1324,9 @@ ec\dpi600\eccc1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
 \2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\Danie\AppData\Lo
 cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.pk> <C:\Users\Danie\
 AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728.pk>
-Output written on main.pdf (25 pages, 179440 bytes).
+Output written on main.pdf (25 pages, 179681 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
+ 424 PDF objects out of 1000 (max. 8388607)
  40 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
