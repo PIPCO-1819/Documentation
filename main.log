@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  13 DEC 2018 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  3 JAN 2019 21:23
 entering extended mode
 **./main.tex
 (main.tex
@@ -700,7 +700,7 @@ Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              `\addtokomafont' for the page style elements need
 (scrbook)              explicite user intervention to work.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 80.
+(scrbook)              package `fancyhdr' on input line 83.
 
 (C:\Users\Danie\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
@@ -1336,13 +1336,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14739 strings out of 493323
- 225325 string characters out of 3139065
- 556452 words of memory out of 3000000
- 17908 multiletter control sequences out of 15000+200000
+ 14723 strings out of 493323
+ 225184 string characters out of 3139065
+ 556223 words of memory out of 3000000
+ 17896 multiletter control sequences out of 15000+200000
  18728 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,11n,71p,8817b,1356s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,11n,71p,8817b,1354s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
 eccc1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
 ec\dpi600\ecsi1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
@@ -1354,9 +1354,9 @@ AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Us
 ers\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.
 pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecss1728.pk>
-Output written on main.pdf (27 pages, 222149 bytes).
+Output written on main.pdf (27 pages, 211354 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
+ 559 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
  174 words of extra memory for PDF output out of 10000 (max. 10000000)
 
