@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  3 JAN 2019 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.23)  3 JAN 2019 22:24
 entering extended mode
 **./main.tex
 (main.tex
@@ -1121,7 +1121,7 @@ LaTeX Info: Redefining \nameref on input line 18.
 \openout2 = `content/title.aux'.
 
  (content/title.tex
-<content/pictures/hfu.jpg, id=85, 1015.795pt x 411.5375pt>
+<content/pictures/hfu.jpg, id=57, 1015.795pt x 411.5375pt>
 File: content/pictures/hfu.jpg Graphic file (type jpg)
 
 <use content/pictures/hfu.jpg>
@@ -1175,18 +1175,15 @@ g>]) [2
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
+ [3] [4
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
-[4] (main.lof)
+] (main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [5
 
-
-] [6
+[5] [6
 
 
 ] (main.lot)
@@ -1203,95 +1200,75 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-]
-[10
+] [10
 
 
 
 ]
 \openout2 = `content/einleitung.aux'.
 
- (content/einleitung.tex
+
+(content/einleitung.tex
 chapter 1.
-File: content/pictures/hfu.jpg Graphic file (type jpg)
-<use content/pictures/hfu.jpg>
-Package pdftex.def Info: content/pictures/hfu.jpg used on input line 24.
-(pdftex.def)             Requested size: 123.77075pt x 50.14218pt.
-File: content/pictures/hfu.jpg Graphic file (type jpg)
- <use content/pictures/hfu.jpg>
-Package pdftex.def Info: content/pictures/hfu.jpg used on input line 33.
-(pdftex.def)             Requested size: 412.56499pt x 167.14273pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 44.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 44.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 \end{table}
-                 [1
+l.58 \include{content/einleitung}
+                                  [1
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+ark on input line 57.
-
-(C:\Users\Danie\AppData\Roaming\MiKTeX\2.9\tex\latex\dingbat\uark.fd
-File: uark.fd 2001/04/27 v1.00 Font definitions for the ark10 font
-)
-Package acronym Info: Label `acro:HFU' newly defined as it shall be overridden
-although it is yet undefined on input line 68.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.72 \lipsum[10]
-                 [2] [3]) [4]
 \openout2 = `content/grundlagen.aux'.
 
- (content/grundlagen.tex
+ (content/grundlagen.texpdfTeX warning (ext4): destination with the same identi
+fier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Verwendetes Zeugs} [2
+
+
+
+
+]
 chapter 2.
 File: content/pictures/hfu.jpg Graphic file (type jpg)
 <use content/pictures/hfu.jpg>
 Package pdftex.def Info: content/pictures/hfu.jpg used on input line 6.
 (pdftex.def)             Requested size: 412.56499pt x 167.14273pt.
-) [5
-
-
-
-
-]
+) [3]
 \openout2 = `content/eigeneKapitel.aux'.
 
- (content/eigeneKapitel.tex [6
+ (content/eigeneKapitel.tex [4
 
 
 
 
 ]
 chapter 3.
-) [7]
+) [5]
 \openout2 = `content/ausblick.aux'.
 
- (content/ausblick.tex [8
+ (content/ausblick.tex [6
 
 
 
 
 ]
 chapter 4.
-) [9]
+) [7]
 \openout2 = `content/fazit.aux'.
 
- (content/fazit.tex [10
+ (content/fazit.tex [8
 
 
 
 
 ]
 chapter 5.
-) [11] (main.bbl [12
+) [9] (main.bbl [10
 
 
 
@@ -1301,10 +1278,10 @@ chapter without number
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <12> not available
 (Font)              Font shape `T1/cmr/m/sc' tried instead on input line 11.
 
-) [13]
+) [11]
 \openout2 = `content/affirmation.aux'.
 
- (content/affirmation.tex [14
+ (content/affirmation.tex [12
 
 
 
@@ -1318,7 +1295,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--16
 
  []
 
-) [15]
+) [13]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
  (main.aux (content/title.aux) (content/abstract.aux)
@@ -1328,7 +1305,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EBE63984AEB60008EFB1E35F97924CEB;1241.
+(rerunfilecheck)             Checksum: 33792B5F32629230F5C929C6E5BB53E2;778.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1336,27 +1313,24 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14723 strings out of 493323
- 225184 string characters out of 3139065
- 556223 words of memory out of 3000000
- 17896 multiletter control sequences out of 15000+200000
- 18728 words of font info for 40 fonts, out of 3000000 for 9000
+ 14329 strings out of 493323
+ 221604 string characters out of 3139065
+ 544087 words of memory out of 3000000
+ 17535 multiletter control sequences out of 15000+200000
+ 17119 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,11n,71p,8817b,1354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,11n,71p,8817b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-eccc1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecsi1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecss0600.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecss1000.pk> <C:\Users\Danie\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Danie\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1440.pk> <C:\Users\Danie\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Us
-ers\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.
-pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecss1728.pk>
-Output written on main.pdf (27 pages, 211354 bytes).
+ecsi1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\eccc1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Danie\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecsx1440.pk> <C:\Users\Danie\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\Danie\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx2074.pk> <C:\Users\Danie\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1728.pk>
+Output written on main.pdf (25 pages, 179440 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 421 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
