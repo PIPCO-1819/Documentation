@@ -1,0 +1,90 @@
+\chapter{Installation}
+
+\section{System}
+Die Installationsanweisungen wurden auf einem Ubuntu Server der Version 18.10 durchgeführt.\\
+Hierzu wurde ein bereits installiertes Image für VirtualBox von \\ \texttt{https://www.osboxes.org/ubuntu-server/} verwendet.
+  
+\section{Backend}
+Für das Backend muss OpenCV, sowie der Flask-Webserver mit allen notwendigen Modulen installiert werden.
+Die Lightweight Installation von OpenCV, welche einfach mit pip installiert werden kann, enthält nicht den passenden Encoder für mp4, weshalb der aktuelle Stand selbst geladen und compiliert werden muss.
+Hierzu kann folgende Anleitung verwendet werden:\\
+\texttt{https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/}
+Zusätzlich zur Installation von OpenCV muss Flask mit pip installiert werden.
+Hierzu muss wie in der Anleitung beschrieben .bashrc mit 
+\begin{lstlisting}[frame=single]
+source  ~/.bashrc
+\end{lstlisting}
+geladen werden.
+Anschließend kann mit
+\begin{lstlisting}[frame=single]
+workon cv
+\end{lstlisting} in der Virtuellen Python-Umgebung gearbeitet bzw. flask wie folgt installiert werden:
+\begin{lstlisting}[frame=single]
+pip install flask flask-cors
+\end{lstlisting}
+Nun muss nur noch das Repository ausgecheckt und ausgeführt werden.
+\begin{lstlisting}[frame=single]
+git clone https://github.com/PIPCO-1819/PIPCO-Backend
+cd PIPCO-Backend
+python Main.py
+\end{lstlisting}
+
+\section{Frontend}
+Für das Frontend wird Node.js, npm, sowie Angular verwendet.
+\begin{lstlisting}[frame=single]
+apt-get install npm nodejs
+sudo npm install -g npm@latest
+sudo npm install -g @angular/cli
+\end{lstlisting}
+Repository auschecken und restliche dependencies installieren:
+\begin{lstlisting}[frame=single]
+git clone https://github.com/PIPCO-1819/PIPCO-Frontend.git
+cd PIPCO-Frontend
+npm install
+\end{lstlisting}
+Anschließend den Server wie folgt starten:
+\begin{lstlisting}[frame=single]
+ng serve --host 0.0.0.0
+\end{lstlisting}
+
+\section{Run on Startup}
+start\_backend.sh in PIPCO-Backend
+\begin{lstlisting}[frame=single]
+#!/bin/sh
+printf "<LOGIN>\n<PASSWORD>\n" | \
+/home/osboxes/.virtualenvs/cv/bin/python Main.py
+\end{lstlisting}
+
+start\_frontend.sh in PIPCO-Frontend
+\begin{lstlisting}[frame=single]
+#!/bin/sh
+printf "<LOGIN>\n<PASSWORD>\n" | \
+/home/osboxes/.virtualenvs/cv/bin/python Main.py
+\end{lstlisting}
+
+start\_frontend.sh in PIPCO-Frontend
+\begin{lstlisting}[frame=single]
+#!/bin/sh
+ng serve --host 0.0.0.0
+\end{lstlisting}
+
+start\_pipco.sh
+\begin{lstlisting}[frame=single]
+#!/bin/bash
+screen -dmS frontend bash -c \
+'cd /home/osboxes/PIPCO-Frontend; ./start_frontend.sh'
+screen -dmS backend bash -c \
+'cd /home/osboxes/PIPCO-Backend;. start_backend.sh'
+\end{lstlisting}
+
+rc.local bei Start des Systems ausführen
+\begin{lstlisting}[frame=single]
+printf '%s\n' '#!/bin/bash' 'exit 0' | sudo tee -a /etc/rc.local
+sudo chmod +x /etc/rc.local
+\end{lstlisting}
+Skript zu rc.local hinzufügen
+\begin{lstlisting}[frame=single]
+...
+/home/osboxes/start_pipco.sh
+exit 0
+\end{lstlisting}
