@@ -52,7 +52,61 @@ Im folgenden wird tabellarisch festgehalten, welche Aktionen getestet wurden und
 \subsubsection{Ergebnisse der Manuellen Tests}
 Vorraussetzung für alle Tests ist selbsterklärend, dass Front-End sowie Back-End korrekt installiert und gestartet sind.
 
-\begin{table}[ht]
+\begin{longtable}{| p{.02\textwidth} | p{.06\textwidth} | p{.20\textwidth} | p{.20\textwidth} | p{.20\textwidth} | p{.07\textwidth} | p{.07\textwidth} |}
+	\hline
+	
+	\textbf{\#} & \textbf{Kom-po-nen-te} & \textbf{Vorraussetz-ungen} & \textbf{Aktion} & \textbf{Erwartetes Ergebnis} & \textbf{OK in Chrome} & \textbf{OK in Firefox} \\ \hline
+	
+	1 & Login & Der Anwender befindet sich auf der Login-Seite und ist demnach nicht eingeloggt. & Der Anwender gibt beim Einloggen den richtigen Usernamen (user) und das richtige Passwort (geheim) ein. & Der Anwender wird auf die Hauptseite der Anwendung weitergeleitet und ist	korrekt eingeloggt. & X & X \\ \hline
+	
+	2 & Login & Der Anwender befindet sich auf der Login-Seite und ist demnach nicht
+	eingeloggt. & Der Anwender gibt beim
+	Einloggen einen falschen Usernamen (Verwendet: test) und das richtige Passwort (geheim) ein. & Rechts neben dem Login-Button erscheint eine Nachricht (Login failed) in roter Schrift. & X & X \\ \hline
+	
+	3 & Login & Der Anwender befindet sich auf der Login-Seite und ist demnach nicht eingeloggt. & Der Anwender gibt beim
+	Einloggen den richtigen Usernamen (user) und ein falsches Passwort ein. (Verwendet: test) & Rechts neben dem Login-Button  erscheint eine Nachricht (Login failed) in roter Schrift. & X & X \\ \hline
+	
+	4 & Login & Der Anwender befindet sich auf der Login-Seite	und ist demnach nicht
+	eingeloggt. & Der Anwender gibt beim Einloggen sowohl einen falschen Usernamen (Verwendet: test1) als auch ein falsches Passwort (Verwendet: test2) ein. & Rechts neben dem Login-Button erscheint eine Nachricht (Login failed) in roter Schrift. & X & X \\ \hline
+	
+	5 & Login & Der Anwender befindet sich auf der Login-Seite und ist demnach nicht eingeloggt. & Der Anwender gibt beim Einloggen einen falschen Usernamen (Verwendet: test) und das richtige Passwort (geheim) ein. & Zwischen dem Absenden der Logindaten und dem Empfangen einer Antwort durch das Back-End wird rechts neben dem Login-Button eine Ladeanimation angezeigt. & X & X \\ \hline
+	
+	6 & Login & Der Anwender befindet sich auf der Login-Seite und ist demnach nicht eingeloggt. & Der Anwender gibt beim Einloggen den richtigen Usernamen (user) und das richtige Passwort (geheim) ein. & Zwischen dem Absenden	der Logindaten und dem Empfangen einer Antwort
+	durch das Back-End wird	rechts neben dem Login-
+	Button eine Ladeanimation angezeigt.  & X & X \\ \hline
+	
+	7 & Header & Der Anwender befindet sich auf der Login-Seite
+	und ist demnach nicht eingeloggt. & Der Anwender klickt auf das
+	PIPCO-Logo auf der linken Seite des Headers. & Die Webseite wird neu geladen. & X & X \\ \hline
+	
+	8 & Header & Der Anwender befindet sich auf der Settings-Seite und ist demnach	bereits eingeloggt. & Der Anwender klickt auf das PIPCO-Logo auf der linken Seite des Headers. & Die Webseite wird neu geladen. Der Anwender ist
+	nicht länger eingeloggt und	wird daher auf die Login-Seite weitergeleitet. & X & X \\ \hline
+	
+	9 & Header & & Der Anwender hovert mit dem Cursor über das PIPCO-Logo auf der linken Siete des Headers. & Ein Tooltip (Refresh Page) wird neben dem Cursor angezeigt. Der Cursor ändert sein Styling zu Pointer. & X & X \\ \hline
+	
+	10 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite & & Auf der rechten Seite des headers befinden sich ein Settings-Button sowie ein Logout-Button (in dieser Reihenfolge) & X & X \\ \hline
+	
+	11 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über den Settings-Button auf der rechten Seite des Headers. & Ein Tooltip (Settings) wird neben dem Cursor angezeigt. Der Cursor ändert sein Styling zu Pointer. & X & X \\ \hline
+	
+	12 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über den Logout-Button auf der rechten Seite des Headers. & Ein Tooltip (Logout) wird neben dem Cursor angezeigt. Der Cursor ändert sein Styling zu Pointer. & X & X \\ \hline
+	
+	13 & Header & Der Anwender ist korrekt eingeloggt und befinet sich auf der Hauptseite. & Der Anwender klickt auf den Settings-Button auf der rechten Seite des Headers. & Der Anwender wird auf die Settings-Seite weitergeleitet. & X & X \\ \hline
+
+	14 & Header & Der Anwender ist korrekt eingeloggt und befinet sich auf der Hauptseite. & Der Anwender klickt auf den Logout-Button auf der rechten Seite des Headers. & Der Anwender wird korrekt ausgeloggt und auf die Login-Seite weitergeleitet. & X & X \\ \hline
+
+	15 & Header & Der Anwender ist korrekt eingeloggt und befinet sich auf der Settings-Seite. & & Auf der rechten Seite des Headers befinden sich ein Home-Button sowie ein Logout-Button (in dieser Reihenfolge) & X & X \\ \hline
+	
+	16 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender klickt auf den Home-Button auf der rechten Seite des Headers. & Der Anwender wird auf die Hauptseite weitergeleitet & X & X \\ \hline
+	
+	17 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender klickt auf den Logout-Button auf der rechten Seite des Headers. & Settings-Button sowie Logout-Button im Header sind nicht mehr da. & X & X \\ \hline
+	
+	18 & Header & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender hovert mit dem Cursor über den Home-Button auf der rechten Seite des Headers. & Ein Tooltip (Home) wird neben dem Cursor angezeigt. Der Cursor ändert sein Styling zu Pointer. & X & X \\ \hline
+	
+	\caption{Manuelle Front-End-Tests}
+	\label{tab:manuelle_front_end_tests}
+\end{longtable}
+
+\begin{longtable}{c} 
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{cllllcc}
@@ -86,4 +140,4 @@ Vorraussetzung für alle Tests ist selbsterklärend, dass Front-End sowie Back-E
 	\multicolumn{1}{l}{}              &                                 &                                                                                                                                                                                                                   &                                                                                                                                                           &                                                                                                                                                                                                                                      & \multicolumn{1}{l}{}                                                                                 & \multicolumn{1}{l}{}                                                                                  \\
 	\multicolumn{1}{l}{}              &                                 &                                                                                                                                                                                                                   &                                                                                                                                                           &                                                                                                                                                                                                                                      & \multicolumn{1}{l}{}                                                                                 & \multicolumn{1}{l}{}                                                                                 
 \end{tabular}}
-\end{table}
+\end{longtable}
