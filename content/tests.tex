@@ -50,7 +50,7 @@ Beim manuellen testen handelt es sich um einen Testprozess, bei dem der Tester o
 Im folgenden wird tabellarisch festgehalten, welche Aktionen getestet wurden und von welcher Ausgangssituation aus getestet wurde. Alle Tests wurden in den beiden Browsern Google Chrome (64-Bit Version 71.0.3578.98 Offizieller Build) und Mozilla Firefox (64-Bit Version 63.0.1 Offizieller Build) auf einem mit Windows 10 betriebenem Laptop mit einer Auflösung von 1920x1080 durchgeführt. 
 
 \subsubsection{Ergebnisse der Manuellen Tests}
-Vorraussetzung für alle Tests ist selbsterklärend, dass Front-End sowie Back-End korrekt installiert und gestartet sind. Zudem sind alle Einstellungen sinnvoll gewählt. Das bedeutet beispielsweise, dass ein funktionierender MJPEG-Stream hinterlegt ist.
+Vorraussetzung für alle Tests ist selbsterklärend, dass Front-End sowie Back-End korrekt installiert und gestartet sind. Zudem sind alle Einstellungen sinnvoll gewählt. Das bedeutet beispielsweise, dass ein funktionierender MJPEG-Stream hinterlegt ist. Es sind außerdem fünf beliebige Clips mit allen nötigen Werten korrekt gespeichert sowie abrufbar. Es sind auch zwei gespeichert.
 
 Folgende Einstellungen waren bei den folgenden manuellen Tests vorhanden:
 
@@ -77,6 +77,8 @@ Folgende Einstellungen waren bei den folgenden manuellen Tests vorhanden:
 		
 		max\_storagee & 1024 \\ \hline
 	\end{tabular}
+\caption{Eingestellte Werte vor jedem Test}
+\label{tab:eingestellte_werte_vor_tests}
 \end{table}
 
 Bedeutung der Spalte C*: Der Test wurde in der zuvor genannten Version von Google Chrome erfolgreich durchgeführt.
@@ -152,6 +154,118 @@ Bedeutung der Spalte F*: Der Test wurde in der zuvor genannten Version von Mozil
 	\stepcounter{TestNumber}\arabic{TestNumber} & Video & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Über die Event-Log-Komponente wurde die Wiedergabe eines Clips gestartet. & Es wird auf den Return-Button (RETURN TO LIVESTREAM) rechts oben in der Komponente geklickt. & Die Überschrift über der Wiedergabe wird zurückgesetzt (Currentyl Watching: IP Camera Live Stream) & X & X \\ \hline
 	
 	\stepcounter{TestNumber}\arabic{TestNumber} & Video & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Über die Event-Log-Komponente wurde die Wiedergabe eines Clips gestartet. & Es wird auf den Return-Button (RETURN TO LIVESTREAM) rechts oben in der Komponente geklickt. & Der eben betätigte Return-Button verschwindet. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Range-Slider & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Range-Slider für die Einstellung Contrast weist die richtige Hintergrundfarbe auf (\#431ede) & X & X \\ \hline
+
+	\stepcounter{TestNumber}\arabic{TestNumber} & Range-Slider & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Griff des Range-Sliders für die Einstellung Contrast weist die richtige Hintergrundfarbe auf (\#c7c7c7) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Range-Slider & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über den Griff des Range-Sliders für die Einstellung Contrast & Der Cursor verändert sein Styling zu grab & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Range-Slider & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender greift den Griff des Range-Sliders für die Einstellung Brightness und zieht diesen komplett nach rechts. & Der Griff des Range-Sliders für die Einstellung Brightness bewegt sich in 5 Sprüngen an den rechten Rand des Range-Sliders. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Range-Slider & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender greift den Griff des Range-Sliders für die Einstellung Brightness und zieht diesen komplett nach rechts. & Der Hintergrund des Range-Sliders für die Einstellung Brightness bleibt stets bis hinter seinen Griff mit der richtigen Farbe ausgefüllt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Video-Settings & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Regler für die Einstellung Sensitivity befindet sich auf seiner Minimalposition (0.0) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Video-Settings & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Regler für die Einstellung Brightness befindet sich genau auf der mittleren Position (0.5) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Video-Settings & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Regler für die Einstellung Contrast befindet sich auf seiner Maxixmalposition (1.0) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Title-Bar & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Die Titel-Leiste der Event-Log-Komponente zeigt den richtigen Titel an (Motion Detection) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Title-Bar & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Toggle-Switch der Event-Log-Komponente weißt den richtigen Wert auf (true). & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Title-Bar & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Der Toggle-Switch der Event-Log-Komponente weißt den richtigen Wert auf (true). & Der Anwender klickt auf den Toggle-Switch der Event-Log-Komponente. & Der Toggle-Switch der Event-Log-Komponente ändert seinen Wert (false). & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Title-Bar & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über den Toggle-Switch der Event-Log-Komponente & Der Cursor verändert sein Styling zu pointer. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Title-Bar & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über abseits des Toggle-Switches der Event-Log-Komponente über die Titel-Leiste derselben Komponente. & Neben dem Cursor wir ein Tool-Tip mit dem Titel der Komponente angezeigt (Motion Detection). & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & In der Event-Log-Komponente werden fünf einträge dargestellt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Slider auf der rechten Seite ist ausgegraut, da er noch nicht benötigt wird. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Jeder ungerade Eintrag in der Event-Log-Komponente hat eine graue Hintergrundfarbe. Jeder gerade Eintrag hat eine weiße.  & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Bei jedem Eintrag in der Event-Log-Komponente wird in der Spalte Thumbnail das richtige Thumbnail zum Clip angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Bei jedem Eintrag in der Event-Log-Komponente wird in der Spalte Timestamp der richtige Zeitpunkt der Aufnahme angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Bei jedem Eintrag in der Event-Log-Komponente wird in der Spalte Message nichts angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Bei jedem Eintrag in der Event-Log-Komponente wird in der Spalte Delete ein Delete-Button als rotes Kreuz angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über den Delete-Button eines angezeigten Eintrages in der Event-Log-Komponente & Der Cursor verändert sein Styling zu pointer & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über das Thumbnail eines angezeigten Eintrages in der Event-Log-Komponente & Das Thumbnail vergrößert sich etwas. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender hovert mit dem Cursor über das Thumbnail eines angezeigten Eintrages in der Event-Log-Komponente & Der Cursor verändert sein Styling zu pointer. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Der Cursor befindet sich über einem Thumbnail eines angezeigten Eintrages der Event-Log-Komponente. & Der Anwender bewegt den Cursor vom Thumbnail weg. & Das Thumbnail verkleinert sich auf seine ursprüngliche größe. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. & & In der Event-Log-Komponente werden zehn Einträge angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. & & Der Slider auf der rechten Seite der Event-Log-Komponente ist nicht ausgegraut. Er kann benutzt werden um durch die Einträge zu scrollen. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. & Der Anwender Scrollt über das Ende der angezeigten Einträge in der Event-Log-Komponente hinaus. & Es werden weitere zehn Einträge nachgeladen und angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. Es wurde bis zum Ende gescrollt, wodurch alle zwanzig Einträge aufgelistet werden. & Der Anwender Scrollt über das Ende der angezeigten Einträge in der Event-Log-Komponente hinaus. & Es passiert nichts. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender betätigt den Delete-Button des ersten Eintrags in der Event-Log-Komponente. & Der Eintrag wird aus der Tabelle gelöscht. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender Klickt auf das Thumbnail des ersten Eintrages in der Event-Log-Komponente. & Die Video-Komponente schaltet zur Wiedergabe des entsprechenden Videoclips um. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. & & Alle fünf Sekunden werden von Back-End die neusten Event-Logs abgerufen. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Event-Log & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zwanzig Clips verfügbar. & Das Back-End liefert einen neuen, einunzwanzigsten Event-Log Eintrag zurück. & Der älteste Eintrag wird aus der Liste aller Einträge gelöscht und der neue Eintrag wird am anderen Ende eingefügt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & In der Email-Notification-Komponente werden zwei E-Mail-Einträge angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Der Slider auf der rechten Seite ist ausgegraut, da er noch nicht benötigt wird. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Jeder ungerade Eintrag in der Email-Notifcation-Komponente hat eine graue Hintergrundfarbe. Jeder gerade Eintrag hat eine weiße.  & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Im Input-Feld der Email-Notification-Komponente wird ein Platzhaltertext (Add a new E-Mail address) angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Links vom Input-Feld der Email-Notification-Komponente befindet sich ein runder Submit-Button mit einem Plus in der Mitte. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender schreibt etwas in das Input-Feld der Email-Notification-Komponente. & Der Platzhaltertext des Input-Feldes wird durch die Eingabe ersetzt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender schreibt eine neue E-Mail-Addresse (test1@test2.com) in das Input-Feld der Email-Notification-Komponente und klickt auf den Add-Button. & Es wird ein neuer Eintrag in der Tabelle angezeigt. Die angezeigte E-Mail-Addresse stimmt mit der Eingabe überein und die Notification-Checkbox zeigt true an. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender schreibt eine bereits vorhandene E-Mail-Addresse in das Input-Feld der Email-Notification-Komponente und klickt auf den Add-Button. & Es passiert nichts. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender schreibt eine ungültige E-Mail-Addresse (iaintanemail) in das Input-Feld der Email-Notification-Komponente und klickt auf den Add-Button. & Es passiert nichts. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Email-Notifi-cation & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es sind zehn Email-Einträge verfügbar. & & Der Slider auf der rechten Seite der Email-Notification-Komponente ist nicht ausgegraut. Er kann benutzt werden um durch die Einträge zu scrollen. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Status-Button & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Der Save-Button der neben dem Input-Feld der Einstellungsmöglichkeit für die Maximale Cliplänge enthält den richtigen Text (SAVE) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Status-Button & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Der Save-Button der neben dem Input-Feld der Einstellungsmöglichkeit für die maximale Cliplänge zeigt einen grünen Haken an. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Status-Button & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert den Inhalt des Input-Feldes der Einstellungsmöglichkeit für die maximale Cliplänge (30). & Der Save-Button der neben dem Input-Feld der Einstellungsmöglichkeit für die Maximale Cliplänge zeigt ein rotes Kreuz an. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Status-Button & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. Der Inhalt des Input-Feldes der Einstellungsmöglichkeit für die maximale Cliplänge wurde verändert (30). & Der Anwender betätigt den Save-Button neben diesem Input-Feld. & Das rote Kreuz innerhalb des Save-Buttons wird durch eine Ladeanimation ersetzt. Nachdem der neue Wert erfolgreich gespeichert wurde, wird diese wiederum durch einen grünen Haken ersetzt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Das Input-Feld der Einstellungsmöglichkeit streamaddress enthält den richtigen Wert (siehe Tabelle \ref{tab:eingestellte_werte_vor_tests}) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Das Input-Feld der Einstellungsmöglichkeit cliplength enthält den richtigen Wert (siehe Tabelle \ref{tab:eingestellte_werte_vor_tests}) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Das Input-Feld der Einstellungsmöglichkeit max\_logs enthält den richtigen Wert (siehe Tabelle \ref{tab:eingestellte_werte_vor_tests}) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & & Das Input-Feld der Einstellungsmöglichkeit max\_storage enthält den richtigen Wert (siehe Tabelle \ref{tab:eingestellte_werte_vor_tests}) & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender klickt auf den Download-Backup-Button. & Bis die Backup-Datei vom Back-End erhalten wird, erscheint neben dem Download-Backup-Button eine Ladeanimation. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Settings-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender klickt auf den Download-Backup-Button. & Sobald die Backup-Datei vom Back-End erhalten wurde wird diese automatisch durch den Browser heruntergeladen. & X &  \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Main-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Am oberen Bildschirmrand wird die Header-Komponente vollständig angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Main-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Unterhalb der Header-Komponente wird auf der linken Seite erst die Video-Komponente und darunter die Video-Settings-Komponente korrekt angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Main-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & & Unterhalb der Header-Komponente wird auf der rechten Seite erst die Event-Log-Komponente und darunter die Email-Notification-Komponente korrekt angezeigt. & X & X \\ \hline
+	
+	\stepcounter{TestNumber}\arabic{TestNumber} & Main-Page & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verringert die Breite der Browserfensters auf weniger als 1200px. & Die beiden rechten Komponenten rutschen unter die beiden linken Komponenten. Alle vier dieser Komponenten nehmen absofort die ganze breite der Browserfensters in Anspruch. & X & X \\ \hline
 	
 	\caption{Manuelle Front-End-Tests}
 	\label{tab:manuelle_front_end_tests}
