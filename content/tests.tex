@@ -7,11 +7,7 @@ Diese Testdokumentation wurde erstellt, um die Herangehensweise, Durchführung s
 Ziel unseres Testprozesses ist es garantieren zu können, dass die in diesem Projekt geschaffene Software unter den von uns festgelegten Vorraussetzungen annähernd bis vollständig fehlerfrei und mit möglichst guter Performance betrieben werden kann. Auffälligkeiten sowie nach dem Testprozess bekannte und unbehobene Fehler sollen am Ende des Testprozesses dokumentiert sein.
 
 \subsection{Rahmenbedingungen}
-Grundsätzlich wurde während der Entwicklung der Anwendung stets darauf geachtet, dass die jeweils neu implementierten Features einwandfrei funktionieren und auch, dass durch die Implementierung jener Features keine der zuvor vorhandenen Teile beschädigt werden. Dennoch haben wir in unserer Projektplanung eine gesonderte Testphase geplant, bei der wir im Zeitraum von zwei Wochen alle nötigen Schritte abschließen möchten, um die von uns erstellte Anwendung ausgiebig zu testen.
-
-
-
- 
+Grundsätzlich wurde während der Entwicklung der Anwendung stets darauf geachtet, dass die jeweils neu implementierten Features einwandfrei funktionieren und auch, dass durch die Implementierung jener Features keine der zuvor vorhandenen Teile beschädigt werden. Dennoch haben wir in unserer Projektplanung eine gesonderte Testphase geplant, bei der wir im Zeitraum von zwei Wochen alle nötigen Schritte abschließen möchten, um die von uns erstellte Anwendung ausgiebig zu testen. In dieser zweiwöchigen Testphase soll der Testprozess vollständig abgeschlossen werden.
 
 \subsection{Teststrategie}
 Um unser Testziel zu erreichen greifen wir auf verschiedene Testmethoden zurück. Da die Testphase sowohl durch einen kurzen Zeitraum, als auch die Anzahl der Tester eingeschränkt ist, müssen wir diese Ressourcen bestmöglich nutzen. Nach längeren Diskussionen innerhalb des Entwicklungsteams haben wir uns dazu entschlossen, auf eine Kombination von automatisierten Unit-Tests, manuellen System- und UI-Tests, sowie Last-Test zu setzen. Auf diese Weise decken wir beim Testen nicht nur funktionale sondern auch nichtfunktionale Anforderungen der Software ab.
@@ -26,6 +22,7 @@ Welche Methodik bei den einzelnen Teilen der Anwendung verwendet wurde wird in d
 		Back-End            & \begin{tabular}[c]{@{}l@{}}Unit-Tests.\\ Manuelle Tests\end{tabular} \\ \cline{1-2}
 		Gesamtsystem        & Manuelle Tests \\ \cline{1-2}
 	\end{tabular}
+\caption{Testarten der unterschiedlichen Softwareteile}
 \end{table}
 
 Trotz dessen, dass wir eine eigene Testphase geplant haben, ist es uns wichtig über den gesamten Entwicklungsprozess der Software für eine stets einwandfrei lauffähige Anwendung zu sorgen. Dies entspricht nicht nur unserem agilen Softwareentwicklungsprozess nach Scrum, sondern erleichtert auch die gemeinsame Arbeit durch mehrere Entwickler jeweils an Front-End sowie Back-End. Um dies gewährleisten zu können, haben wir abseits der Testphase jedes neu implementierte Feature sowie die Auswirkungen der Implementierung auf den Rest der Anwendung manuell getestet.
@@ -33,12 +30,12 @@ Trotz dessen, dass wir eine eigene Testphase geplant haben, ist es uns wichtig �
 \section{Testen des Front-Ends}
 
 \subsection{Unit-Tests}
-Bei unserem Front-End sind wir zu dem Schluss gekommen, dass ein automatisiertes Testen nur bedingt sinnvoll ist. Ein großer Teil der Implementierungen dort bezieht sich rein auf die Darstellung der vom Back-End erhaltenen Daten im Webbrowser, oder um das Beschaffen und Versenden eben dieser Daten. Ein automatiertes Testen der Weboberfläche ist dabei überproportional aufwändig und in unserem Falle in den meisten Fällen nicht sinnvoll, da es sich vor allem um statische Inhalte oder um Video- beziehungsweise Bildinhalte handelt. Außerdem muss beim Testen einer Weboberfläche auf Faktoren wie Browserkompatibilität geachtet werden, was durch manuelles Testen besser umsetzbar ist. Nichts desto trotz wurde für jede Komponente des Front-Ends ein eigener Unit-Test erstellt, der die vollständige Erzeugung eben dieser Komponente simuliert und Testet. Dabei werden für die Komponente erforderliche Abhängigkeiten durch Mock-Objekte ersetzt, um ein unabhängiges Testen zu ermöglichen.
+Bei unserem Front-End sind wir zu dem Schluss gekommen, dass ein automatisiertes Testen nur bedingt sinnvoll ist. Ein großer Teil der Implementierungen dort bezieht sich rein auf die Darstellung der vom Back-End erhaltenen Daten im Webbrowser, oder um das Beschaffen und Versenden eben dieser Daten. Ein automatiertes Testen der Weboberfläche ist dabei überproportional aufwändig und in unserem Falle in den meisten Fällen nicht sinnvoll, da es sich vor allem um statische Inhalte oder um Video- beziehungsweise Bildinhalte handelt. Außerdem muss beim Testen einer Weboberfläche auf Faktoren wie Browserkompatibilität geachtet werden, was durch manuelles Testen besser umsetzbar ist. Nichts desto trotz wurde für jede Komponente des Front-Ends ein eigener Unit-Test erstellt, der die vollständige Erzeugung eben dieser Komponente simuliert und testet. Dabei werden für die Komponente erforderliche Abhängigkeiten durch Mock-Objekte ersetzt, um ein unabhängiges Testen zu ermöglichen.
 
 Standardgemäß verwenden wir beim automatisierten Testen unseres Angular-Front-Ends das Testframework Karma. Dieses ist bereits beim Erzeugen eines neuen Angular-Projektes per Angular-\acs{CLI} integriert und vorkonfiguriert. 
 
 \subsubsection{Ausführen der Unit-Tests}
-Nachdem das Projekt korrekt auf die in 23123 Dargestellte Art und Weise installiert wurde und lauffähig ist, können die automatisierten Tests durch das Aufrufen eines Konsolenbefehls gestartet werden. Dazu muss im Projektordner ein Terminal geöffnet werden und der Befehl "ng test" ausgeführt werden.
+Nachdem das Projekt korrekt auf die in \ref{chapter_installation} Dargestellte Art und Weise installiert wurde und lauffähig ist, können die automatisierten Tests durch das Aufrufen eines Konsolenbefehls gestartet werden. Dazu muss im Projektordner ein Terminal geöffnet werden und der Befehl \glqq{}ng test\grqq ausgeführt werden.
 
 \subsubsection{Ergebnisse der Unit-Tests}
 HIER SCREENSHOT VON UNITTEST ERGEBNISSEN EINFÜGEN
@@ -84,6 +81,8 @@ Folgende Einstellungen waren bei den folgenden manuellen Tests vorhanden:
 Bedeutung der Spalte C*: Der Test wurde in der zuvor genannten Version von Google Chrome erfolgreich durchgeführt.
 
 Bedeutung der Spalte F*: Der Test wurde in der zuvor genannten Version von Mozilla Firefox erfolgreich durchgeführt.
+
+\newpage
 
 \newcounter{TestNumber}
 \begin{longtable}{| p{.02\textwidth} | p{.08\textwidth} | p{.25\textwidth} | p{.25\textwidth} | p{.25\textwidth} | p{.025\textwidth} | p{.025\textwidth} |}
@@ -270,3 +269,8 @@ Bedeutung der Spalte F*: Der Test wurde in der zuvor genannten Version von Mozil
 	\caption{Manuelle Front-End-Tests}
 	\label{tab:manuelle_front_end_tests}
 \end{longtable}
+
+\section{Testen des Gesamtsystems}
+
+
+

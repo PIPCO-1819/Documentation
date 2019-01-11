@@ -1,0 +1,33 @@
+\chapter{Front-End}
+Da zwei der vier Projektteilnehmer bereits im Praxissemester Erfahrungen damit gesammelt haben, viel unsere Wahl bei den Technologien für unser Front-End auf Angular. Auf diese Weise konnten wir produktiver arbeiten und deutlich übersichtlicheren Code produzieren. Grundlegende Informationen rund um Angular sowie ein Tutorial zur Entwicklung mit Angular gibt es unter \href{https://angular.io/}{https://angular.io/}, der offiziellen Website zum Framework.
+
+\section{Angular}
+Angular ist ein unter der sehr freizügigen \acs{MIT}-Lizenz verfügbares, auf TypeScript basierendes Front-End-Framework für Webanwendungen, wobei die Entwicklung dieser Software von Google geleitet wird. Dieses Framework ist grundsätzlich Client-seitig, was bedeutet, dass unter anderem Darstellung sowie Strukturierung von Inhalten beim Anwender und nicht auf der Host-Maschine berechnet werden. Eine Kommunikation mit dem Server findet demnach nur dann statt, wenn neue Inhalte abgerufen werden, oder wenn ein weiterer Datenaustausch vom Entwickler vorgesehen ist. Das hat den Vorteil, dass die Kapazitäten des Servers geschont werden.
+
+Neben den offensichtlichen Vorteilen eines Frameworks, wie zum Beispiel dem Steigern der Produktivität des Entwicklers durch die Abstraktion häufig auftretender Problemstellungen, bietet Angular den Vorteil einer komponentenorientierten Herangehensweise bei der Strukturierung von damit erstellten Webanwendungen. Durch diese Unterteilung semantisch zusammengehöriger Codebausteine wird eine ansonsten komplexe Anwendung übersichtlicher und damit wartbarer. Zudem können solche Komponenten aufgrund ihrer Kapselung deutlich einfacher getestet oder auch an anderer Stelle wiederverwendet werden. Einer der Hauptgründe dafür, dass in Angular eine so strikte Trennung einzelner Komponenten überhaupt möglich ist, stellt dabei die fundamentale Unterstützung von Dependency Injection dar.
+
+Durch die Verwendung der JavaScript-Spracherweiterung TypeScript als Primärsprache des Frameworks profitieren Angular-Entwickler zudem von den Vorteilen der Objektorientierung. Zusätzlich wurde in TypeScript eine statische Typisierung für Variablen eingeführt, was dem Entwickler dabei unterstützt, dahingehende Fehler bereits beim Bauen der Anwendung aufzudecken.
+
+\subsection{Begriffe}
+Um Neulingen in Sachen Angular einen leichteren Einstieg zu bereiten, werden im folgenden einige Kernbegriffe im Bezug auf unser Projekt geschildert.
+
+\subsubsection{Components}
+Eine Angular-Component spiegelt in der Regel ein beliebig kleines Element in der Oberfläche einer Website dar. Eine Angular-Weboberfläche besteht ausschließlich aus einzelnen Components. Jede Component umfasst im Projekt drei Dateien, welche die Funktionalität der Komponente zur Verfügung stellen. Es gibt eine \acs{HTML}-Datei für die \acs{HTML}-Struktur, eine \acs{CSS}-Datei für das Styling sowie eine TypeScript-Datei für die Dynamik der Inhalte.
+
+\subsubsection{Services}
+Angular-Services dienen in der Regel dazu, Daten mittels Http-Requests zu beschaffen und den Components der Anwendung zur verfügung zu stellen. Dabei werden diese Services nicht direkt von den Komponenten erzeugt, sondern mittels dependency injection eingeschleust. Somit können unnötige Mehrfachinitialisierungen vermieden werden. Außerdem kann der Service damit zu einem für das Angular-Framework optimalen Zeitpunkt erzeugt werden. Ein Testen von Services nutzenden Komponenten kann durch das Verwenden der dependency injection ebenfalls besser umgesetzt werden, ohne auf die Implementierung der Services angewiesen zu sein, indem statt der eigentlichen Services Mock-Objekte injeziert werden.
+
+\subsubsection{Guards}
+Die Seitennavigation kann bei Angular, so wie es auch in diesem Projekt der Fall ist, mittels \acs{URL}-Routen festgelegt werden. Sobald dann eine bestimmte \acs{URL} aufgerufen wird, wird eine vordefinierte Komponente angezeigt. Damit manche Routen nur unter bestimmten Umständen erreicht werden können, kann man Guards verwenden. Diese prüfen dann beim Aufrufen einer Route, ob die benötigten Bedingungen erfüllt sind und leitet den Nutzer nur dann wirklich weiter. In dieser Anwendung kommt beispielsweise für die Login-Funktionalität ein Guard zum Einsatz.
+
+\subsubsection{Module}
+Angular-Module fassen eine inhaltlich sinnvoll vom Rest der Anwendung getrennte Sammlung von Programmelementen wie zum Beispiel Components oder Services zusammen. Services und Guards, welche innerhalb des Moduls mittels dependency injection erhalten können werden sollen, müssen im entsprechenden Modul angegeben werden. In dieser Anwendung gibt es neben dem Routing-Module (dazu später mehr) nur ein richtiges Module, welches Komponenten und Services bündelt, das App-Module.
+
+\section{Bausteine}
+Hier werden in kurzer Form alle von uns erzeugten Bausteine des Front-Ends vorgestellt und erleutert.
+
+\subsection{title}
+
+
+
+
