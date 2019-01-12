@@ -15,7 +15,7 @@ Um Neulingen in Sachen Angular einen leichteren Einstieg zu bereiten, werden im 
 Eine Angular-Component spiegelt in der Regel ein beliebig kleines Element in der Oberfläche einer Website dar. Eine Angular-Weboberfläche besteht ausschließlich aus einzelnen Components. Jede Component umfasst im Projekt drei Dateien, welche die Funktionalität der Komponente zur Verfügung stellen. Es gibt eine \acs{HTML}-Datei für die \acs{HTML}-Struktur, eine \acs{CSS}-Datei für das Styling sowie eine TypeScript-Datei für die Dynamik der Inhalte.
 
 \subsubsection{Services}
-Angular-Services dienen in der Regel dazu, Daten mittels Http-Requests zu beschaffen und den Components der Anwendung zur verfügung zu stellen. Dabei werden diese Services nicht direkt von den Komponenten erzeugt, sondern mittels dependency injection eingeschleust. Somit können unnötige Mehrfachinitialisierungen vermieden werden. Außerdem kann der Service damit zu einem für das Angular-Framework optimalen Zeitpunkt erzeugt werden. Ein Testen von Services nutzenden Komponenten kann durch das Verwenden der dependency injection ebenfalls besser umgesetzt werden, ohne auf die Implementierung der Services angewiesen zu sein, indem statt der eigentlichen Services Mock-Objekte injeziert werden.
+Angular-Services dienen in der Regel dazu, Daten mittels Http-Requests zu beschaffen und den Components der Anwendung zur Verfügung zu stellen. Dabei werden diese Services nicht direkt von den Komponenten erzeugt, sondern mittels dependency injection eingeschleust. Somit können unnötige Mehrfachinitialisierungen vermieden werden. Außerdem kann der Service damit zu einem für das Angular-Framework optimalen Zeitpunkt erzeugt werden. Ein Testen von Services nutzenden Komponenten kann durch das Verwenden der dependency injection ebenfalls besser umgesetzt werden, ohne auf die Implementierung der Services angewiesen zu sein, indem statt der eigentlichen Services Mock-Objekte injiziert werden.
 
 \subsubsection{Guards}
 Die Seitennavigation kann bei Angular, so wie es auch in diesem Projekt der Fall ist, mittels \acs{URL}-Routen festgelegt werden. Sobald dann eine bestimmte \acs{URL} aufgerufen wird, wird eine vordefinierte Komponente angezeigt. Damit manche Routen nur unter bestimmten Umständen erreicht werden können, kann man Guards verwenden. Diese prüfen dann beim Aufrufen einer Route, ob die benötigten Bedingungen erfüllt sind und leitet den Nutzer nur dann wirklich weiter. In dieser Anwendung kommt beispielsweise für die Login-Funktionalität ein Guard zum Einsatz.
@@ -24,9 +24,80 @@ Die Seitennavigation kann bei Angular, so wie es auch in diesem Projekt der Fall
 Angular-Module fassen eine inhaltlich sinnvoll vom Rest der Anwendung getrennte Sammlung von Programmelementen wie zum Beispiel Components oder Services zusammen. Services und Guards, welche innerhalb des Moduls mittels dependency injection erhalten können werden sollen, müssen im entsprechenden Modul angegeben werden. In dieser Anwendung gibt es neben dem Routing-Module (dazu später mehr) nur ein richtiges Module, welches Komponenten und Services bündelt, das App-Module.
 
 \section{Bausteine}
-Hier werden in kurzer Form alle von uns erzeugten Bausteine des Front-Ends vorgestellt und erleutert.
+Hier werden in kurzer Form alle von uns erzeugten Bausteine des Front-Ends vorgestellt und erläutert.
 
-\subsection{title}
+\subsection{AppModule}
+Die AppModule-Klasse stellt das einzige richtige Modul in unserer Anwendung dar. Hier werden alle Components deklariert, externe Module und damit deren Funktionalität importiert. Außerdem werden hier die für die dependency injection benötigten Services angegeben und damit bereitgestellt.
+
+\subsection{RoutingModule}
+\label{subsection_routerModule}
+Der Sinn dieses Moduls besteht ausschließlich darin, das Routing der Anwendung zu realisieren. Hier werden alle \acs{URL}-Routen und die jeweiligen Komponenten als deren Gegenstück definiert. Durch das Verwenden von canActivate-Guards wird bei den Routen, die zur Hauptseite oder der Settings-Seite führen verhindert, dass diese ohne einen erfolgreichen Login erreicht werden können. Außerdem werden alle Routern, die nicht explizit von uns definiert wurden, durch die Nutzung einer Wildcard-Route auf die Login-Seite der Anwendung weitergeleitet.
+
+\subsection{AppComponent}
+Diese Komponente ist die Root-Komponente der Anwendung. In ihr wird keine Funktionalität implementiert, sondern lediglich der Grundaufbau der Webseite durch \acs{HTML}- sowie \acs{CSS}-Code definiert. Im \acs{HTML}-Teil ist dabei ein \glqq{}router-outlet\grqq{} genanntes Element auffällig. Dabei handelt es sich um einen Platzhalter für die jeweilige Komponente der aktuellen Route (siehe \ref{subsection_routerModule})
+
+\subsection{HeaderComponent}
+Die Header-Komponente stellt den Header der Weboberfläche dar und zeichnet sich vor allem dadurch aus, dass verschiedene Buttons je nach aktiver Router angezeigt werden. Neben einem permanenten Refresh-Button als Logo wird nur wenn der Anwender eingeloggt ist ein Logout-Button angezeigt, welcher den Anwender über den in \ref{subsection_authService} beschriebenen AuthService ausloggt und anschließend zur Login-Seite weiterleitet. Zudem gibt es je nachdem, ob sich der Nutzer auf der Haupt- oder Settings-Seite der Webanwendung befindet, einen Button der zu der jeweils anderen Seite führt.
+
+\subsection{LoginComponent}
+Hier wird der Aufbau der Login-Seite definiert. Zudem wird die Eingabe von Login-Daten und die Abwicklung des Login-Prozesses durch den in \ref{subsection_authService} beschriebenen AuthService geregelt. Bei erfolgreichem Login wird der Anwender auf die Hauptseite der Anwendung weitergeleitet und bei einem fehlgeschlagenem Login wird eine Fehlermeldung ausgegeben.
+
+\subsection{MainPageComponent}
+\label{subsection_mainPageComponent}
+In dieser Komponente wird die Hauptseite der Anwendung beschrieben. Dabei geht es vor allem um den groben Aufbau und das Verhalten der Anwendung bei verschiedenen Bildschirmgrößen. Bei einer kleineren Auflösung rutschen die nebeneinander dargestellten Teilbereiche der Anwendung in eine Darstellung, bei der sie untereinander angeordnet werden. Das soll die Nutzung auf Geräten mit einer geringeren Auflösung oder einem anderen Bildformat verbessern. Die eigentlichen Inhalte der Hauptseite selbst, sind hierbei in anderen Komponenten definiert, welche hier lediglich eingebunden werden.
+
+\subsection{RangeSliderComponent}
+\label{subsection_rangeSliderComponent}
+Die RangeSliderComponent nutzt die Funktionalitäten des \acs{HTML}-Input-Elementes des Typs Range und fügt dem ein ansprechendes Styling hinzu. Die Implementierung dieser Komponente ist sehr stark auf Wiederverwendbarkeit ausgelegt, da es sich um ein sehr unspezifisches Element handelt, was in komplett anderen Anwendungen ohne nennenswerte Änderungen sinnvoll sein kann. Aus diesem Grund können hier viele Werte zur Anpassung übergeben werden.
+In der folgenden Tabelle \ref{tab:rangeSlider_input_output} werden alle Input- sowie Output-Parameter der Komponente beschrieben.
+\begin{longtable}[]{|p{.1\textwidth}|p{.1\textwidth}|p{.12\textwidth}|p{.6\textwidth}|}
+	
+		\cline{1-4}
+		\textbf{Art} & \textbf{Name} & \textbf{Typ} & \textbf{Beschreibung} \\ \hline
+		
+		Input & min & number & Minimalwert des Sliders. Kann größer sein als max. Kann eine Fließkommazahl sein. \\ \hline
+		
+		Input & max & number & Maximalwert des Sliders. Kann kleiner sein als min. Kann eine Fließkommazahl sein. \\ \hline
+		
+		Input & value & number & Initialisierungswert des Sliders. Muss innerhalb von min und max liegen. Kann eine Fließkommazahl sein. \\ \hline
+		
+		Input & step & number & Schrittweite des Sliders. Kann eine Fließkommazahl sein. \\ \hline
+		
+		Input & color1 & string & Hexcode der Hintergrundfarbe des Sliders linker-halb des Thumb-Elements (aktuelle Auswahl im Slider) in der gängigen Form eines Hexadezimal-Farbcodes (beispielsweise \#fff). \\ \hline
+		
+		Input & color2 & string & Hexcode der Hintergrundfarbe des Sliders rechter-halb des Thumb-Elements (aktuelle Auswahl im Slider) in der gängigen Form eines Hexadezimal-Farbcodes (beispielsweise \#000). \\ \hline
+		
+		Output & value-Change & Event-Emitter-<number> & EventEmitter welcher bei Änderung des Slider-Wertes ein Event mit dem neuen Slider-Wert ausstößt. Kann dazu genutzt werden, um ein Data-Binding mittels (change)-Directive zu realisieren. \\ \hline
+		
+	\caption{Input- und Output-Variablen der RangeSlider-Komponente}
+	\label{tab:rangeSlider_input_output}
+\end{longtable}
+
+\subsection{VideoComponent}
+\label{subsection_videoComponent}
+In dieser Komponente wird sowohl der \acs{MJPEG}-Livestream als auch die Wiedergabe der aufgezeichneten Video-Clips implementiert. Standardmäßig wird hier nur der Livestream angezeigt. Erst wenn der Anwender über die in beschriebene \ref{subsection_eventLogComponent} EventLogComponent die Wiedergabe einer Aufzeichnung auslöst, wird der Livestream, welcher per \acs{HTML}-img-Tag angezeigt wird, durch eben diese Clip-Wiedergabe ersetzt, welche per \acs{HTML}-video-Tag angezeigt wird.
+
+\subsection{VideoSettingsComponent}
+Mithilfe dieser Komponente können die Bildeinstellungen des vom Back-End produzierten \acs{MJPEG}-Streams durch mehrere RangeSlider (siehe \ref{subsection_rangeSliderComponent}) konfiguriert werden. Die neuen Einstellungen werden sobald der Anwender die Position eines Slider verändert hat, den Slider-Thumb also verschoben und losgelassen hat, über den in \ref{subsection_settingsService} beschriebenen SettingsService an das Back-End geschickt.
+
+\subsection{TitleBarComponent}
+\label{subsection_titleBarComponent}
+Diese Komponente wird in der EventLogComponent (siehe \ref{subsection_eventLogComponent}) sowie der EmailNotificationComponent (siehe \ref{subsection_emailNotificationComponent}) als Titelzeile verwendet. In ihr gibt es neben der Möglichkeit einen Titel von außerhalb der Komponente einzuschleusen auch eine Möglichkeit, einen boolschen Wert an einen Toggle-Switch zu binden. Dieser Schalter ist dazu gedacht, die Features, welche die beiden Komponenten zur Verfügung stellen, aktivieren beziehungsweise deaktivieren zu können.
+
+\subsection{EventLogComponent}
+\label{subsection_eventLogComponent}
+Die EventLogComponent dient dazu, dem Anwender alle durch das System aufgezeichneten Clips von detektierten Bewegungen aufzulisten und das Starten dieser Aufnahmen per Klick auf das jeweilige Thumbnail zu ermöglichen. Dazu wird ein Event ausgestoßen, welches dazu genutzt wird in der MainPageComponent (siehe \ref{subsection_mainPageComponent}) eine Funktion auszulösen, welche wiederum in der VideoComponent (siehe \ref{subsection_videoComponent}) das eigentliche Abspielen des Videoclips auslöst. Zudem sollen Aufnahmen permanent gelöscht werden können. Die Bewegungserkennung kann zudem über eine in dieser Komponente enthaltene Instanz der TitleBarComponent (siehe \ref{subsection_titleBarComponent}) in dieser Komponente deaktiviert beziehungsweise aktiviert werden. Die angezeigte Tabelle mit den Aufzeichnungen ist dabei so implementiert, dass nicht sofort alle Einträge angezeigt werden. Es werden zunächst immer nur bis zu zehn Einträge angezeigt. Erst wenn der Nutzer an das Ende der Tabelle gescrollt hat, werden ihm weitere zehn Einträge aufgelistet, bis alle Einträge in der Tabelle enthalten sind. Auf diese weise müssen nicht immer alle Daten von Back-End abgerufen werden, obwohl der Anwender eventuell gar nicht an ihnen interessiert ist. Je nach Einstellungen und Situation könnte das Initialisieren der Liste andernfalls sehr lange dauern, wenn extrem viele Log-Einträge gespeichert sind.
+
+\subsection{EmailNotificationComponent}
+\label{subsection_emailNotificationComponent}
+In dieser Komponente werden dem Anwender alle im System registrierten E-Mail-Adressen aufgelistet. Alle registrierten E-Mail-Adressen werden bei der Detektion einer Bewegung über diese informiert. Es besteht hierbei die Möglichkeit, einzelne E-Mails über eine Checkbox bei jedem Eintrag von den Benachrichtigungen auszuschließen. Das Feature der E-Mail-Benachrichtigungen kann zudem über eine in dieser Komponente enthaltene Instanz der TitleBarComponent (siehe \ref{subsection_titleBarComponent}) in dieser Komponente deaktiviert beziehungsweise aktiviert werden.
+Neue E-Mail-Adressen können über ein Input-Feld eingetragen und gespeichert werden. Bereits eingetragene Adressen können über einen Button bei jedem Eintrag gelöscht werden.
+
+\subsection{AuthService}
+\label{subsection_authService}
+
+\subsection{SettingsService}
+\label{subsection_settingsService}
 
 
 
