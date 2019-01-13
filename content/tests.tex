@@ -366,3 +366,65 @@ Bedeutung der Spalte B*: Der Test wurde in durchgeführt und bestanden.
 	\label{tab:manuelle_gesamtsystem_tests}
 \end{longtable}
 
+\section{Testen des Back-Ends}
+Für das Testen der für das Back-End erstellten Tests wurde eine Testsuite angelegt, welche alle Testklassen auf einmal ausführt.
+\subsection{Webserver}
+Für alle Schnittstellen wurden Tests angelegt und mindestens auf Verfügbarkeit geprüft (Tabelle \ref{table:test-webserver}).
+
+\begin{table}[h]
+	\centering
+	\caption{Unittests für Webserver}
+	\label{table:test-webserver}
+	\resizebox{\textwidth}{!}{\begin{tabular}{llll}
+\textbf{Testname}                      & \textbf{Testmethode}    & \textbf{Eingabe}                                                                                                                   & \textbf{Ausgabe}               \\
+test\_login\_wrong                     & post /login             & \{'user': 'user', 'password': 'bla'\}                                                                                              & Statuscode == 403              \\
+test\_login\_wrong\_empty              & post /login             & \{\}                                                                                                                               & Statuscode == 403              \\
+test\_login\_correct                   & post /login             & \{'user': 'user', 'password': 'geheim'\}                                                                                           & Statuscode == 200              \\
+test\_videostream\_available           & get /videostream        &                                                                                                                                    & Statuscode == 200              \\
+test\_logs\_length                     & get /logs/0/5           &                                                                                                                                    & length == 4                    \\
+test\_logs\_take\_batch                & get /logs/1/2           &                                                                                                                                    & index 0 higher id than index 1 \\
+test\_logs\_take\_not\_existing\_batch & get /logs/2/2           &                                                                                                                                    & length == 0                    \\
+test\_log\_delete\_successful          & delete /log/2           &                                                                                                                                    & 'log\_id' == 2                 \\
+test\_log\_delete\_not\_existing       & delete /log/4           &                                                                                                                                    & Statuscode == 403              \\
+test\_mail\_add\_successful            & post /mail              & \{'mail': 'bla@bla'\}                                                                                                              & 'mail\_id' == 4                \\
+test\_mail\_add\_already\_existing     & post /mail              & \begin{tabular}[c]{@{}l@{}}\{'mail': 'bla@bla'\},\\ \{'mail': 'bla@bla'\}\end{tabular}                                             & Statuscode == 403              \\
+test\_mail\_delete\_successful         & delete /mail/2          &                                                                                                                                    & 'mail\_id' == 2                \\
+test\_mail\_delete\_not\_existing      & delete /mail/4          &                                                                                                                                    & Statuscode == 403              \\
+test\_mail\_toggle\_notify             & put /mail/2             &                                                                                                                                    & 'notify' == False              \\
+test\_mails\_length                    & get /mails              &                                                                                                                                    & length == 4                    \\
+test\_change\_config\_all              & post /config            & \{'sensitivity': 0.5, ...\}                                                                                                        & length == 9                    \\
+test\_change\_config\_specific         & post /config            & \begin{tabular}[c]{@{}l@{}}\{'sensitivity': 0.5, 'streamaddress': 'blablubb',\\  'brightness': 0.0, 'contrast': 0.5\}\end{tabular} & length == 4                    \\
+test\_get\_recording\_successful       & get /recording/test.mp4 &                                                                                                                                    & 'Content-Length' == 2107114    \\
+test\_get\_recording\_not\_existing    & get /recording/bla.mp4  &                                                                                                                                    & Statuscode == 404              \\
+test\_get\_backup\_successful          & get /backup             &                                                                                                                                    & Statuscode == 200       	\end{tabular}}
+\end{table}
+\subsection{Datenverwaltung}
+Für die Änderungen der Daten wurden ebenfalls Tests erstellt um mögliches Fehlverhalten auszuschließen (Tabelle \ref{table:test-datastorage}).
+\begin{table}[h]
+	\centering
+	\caption{Unittests für Datenverwaltung}
+	\label{table:test-datastorage}
+	\resizebox{\textwidth}{!}{\begin{tabular}{llll}
+		\textbf{Testname}                   & \textbf{Testmethode}         & \textbf{Eingabe}    & \textbf{Ausgabe}                                                             \\
+		test\_toggle\_mail\_index\_oor      & toggle\_mail\_notify()       & 4                   & KeyError                                                                     \\
+		test\_toggle\_mail                  & toggle\_mail\_notify()       & 0                   & False                                                                        \\
+		test\_add\_email                    & add\_mail(mail)              & bla@bla             & bla@bla                                                                      \\
+		test\_add\_same\_email\_twice       & add\_mail(mail)              & bla@bla, bla@bla    & -1                                                                           \\
+		test\_remove\_mail                  & remove\_mail(id)             & 0                   & 0                                                                            \\
+		test\_remove\_not\_existing\_mail   & remEove\_mail(id)             & 4                   & KeyError                                                                     \\
+		test\_get\_mails                    & get\_mails()                 &                     & len == 4                                                                     \\
+		test\_copy\_of\_mails               & get\_mails()                 & change mail1        & \begin{tabular}[c]{@{}l@{}}mail1.address !=\\  mail2.address\end{tabular}    \\
+		test\_get\_settings                 & get\_settings()              & brightness = 0.83   & brightness == 0.83                                                           \\
+		test\_copy\_of\_settings            & get\_settings()              & change contrast1    & contrast1 != contrast2                                                       \\
+		test\_change\_settings              & change\_settings(...)        & change all settings & all values changed                                                           \\
+		test\_get\_log\_page                & get\_log\_page(page,size)    & both pages          & order of ids correct                                                         \\
+		test\_get\_log\_page\_not\_existing & get\_log\_page(page,size)    & page 3              & len(result) == 0                                                             \\
+		test\_get\_free\_index              & get\_free\_index()           &                     & 4                                                                            \\
+		test\_add\_log                      & add\_log()                   &                     & len(logs) == 5                                                               \\
+		test\_add\_log\_exceed\_limit       & add\_log()                   & add twice           & \begin{tabular}[c]{@{}l@{}}len(logs) == 5\\ logs.get(0) == None\end{tabular} \\
+		test\_check\_login\_correct         & check\_login(user, password) & user, geheim        & True                                                                         \\
+		test\_check\_login\_wrong           & check\_login(user, password) & user, asd           & False                                                                        \\
+		test\_remove\_log                   & remove\_log(id)              & 0                   & \begin{tabular}[c]{@{}l@{}}0\\ logs.get(0) == None\end{tabular}              \\
+		test\_remove\_log\_not\_existing    & remove\_log(id)              & 4                   & KeyError                                                                    
+	\end{tabular}}
+\end{table}
