@@ -9,19 +9,19 @@ Neben den offensichtlichen Vorteilen eines Frameworks, wie zum Beispiel dem Stei
 Durch die Verwendung der JavaScript-Spracherweiterung TypeScript als Primärsprache des Frameworks profitieren Angular-Entwickler zudem von den Vorteilen der Objektorientierung. Zusätzlich wurde in TypeScript eine statische Typisierung für Variablen eingeführt, was dem Entwickler dabei unterstützt, dahingehende Fehler bereits beim Bauen der Anwendung aufzudecken. \cite{OWA18}
 
 \subsection{Begriffe}
-Um Neulingen in Sachen Angular einen leichteren Einstieg zu bereiten, werden im folgenden einige Kernbegriffe im Bezug auf unser Projekt geschildert.
+Um Neulingen in Sachen Angular einen leichteren Einstieg zu bereiten, werden im folgenden einige Kernbegriffe im Bezug auf unser Projekt geschildert. Am besten sollte jedoch die Einführung auf der offiziellen Seite zu Angular unter \href{https://angular.io/}{https://angular.io/} bearbeitet werden.
 
 \subsubsection{Components}
-Eine Angular-Component spiegelt in der Regel ein beliebig kleines Element in der Oberfläche einer Website dar. Eine Angular-Weboberfläche besteht ausschließlich aus einzelnen Components. Jede Component umfasst im Projekt drei Dateien, welche die Funktionalität der Komponente zur Verfügung stellen. Es gibt eine \acs{HTML}-Datei für die \acs{HTML}-Struktur, eine \acs{CSS}-Datei für das Styling sowie eine TypeScript-Datei für die Dynamik der Inhalte.
+Eine Angular-Component spiegelt in der Regel ein beliebig kleines Element in der Oberfläche einer Website dar. Eine Angular-Weboberfläche besteht ausschließlich aus einzelnen Components. Jede Component umfasst im Projekt drei Dateien, welche die Funktionalität der Komponente zur Verfügung stellen. Es gibt eine \acs{HTML}-Datei für die \acs{HTML}-Struktur, eine \acs{CSS}-Datei für das Styling sowie eine TypeScript-Datei für die Dynamik der Inhalte. \cite{OWA18}
 
 \subsubsection{Services}
-Angular-Services dienen in der Regel dazu, Daten mittels Http-Requests zu beschaffen und den Components der Anwendung zur Verfügung zu stellen. Dabei werden diese Services nicht direkt von den Komponenten erzeugt, sondern mittels dependency injection eingeschleust. Somit können unnötige Mehrfachinitialisierungen vermieden werden. Außerdem kann der Service damit zu einem für das Angular-Framework optimalen Zeitpunkt erzeugt werden. Ein Testen von Services nutzenden Komponenten kann durch das Verwenden der dependency injection ebenfalls besser umgesetzt werden, ohne auf die Implementierung der Services angewiesen zu sein, indem statt der eigentlichen Services Mock-Objekte injiziert werden.
+Angular-Services dienen in der Regel dazu, Daten mittels Http-Requests zu beschaffen und den Components der Anwendung zur Verfügung zu stellen. Dabei werden diese Services nicht direkt von den Komponenten erzeugt, sondern mittels dependency injection eingeschleust. Somit können unnötige Mehrfachinitialisierungen vermieden werden. Außerdem kann der Service damit zu einem für das Angular-Framework optimalen Zeitpunkt erzeugt werden. Ein Testen von Services nutzenden Komponenten kann durch das Verwenden der dependency injection ebenfalls besser umgesetzt werden, ohne auf die Implementierung der Services angewiesen zu sein, indem statt der eigentlichen Services Mock-Objekte injiziert werden. \cite{OWA18}
 
 \subsubsection{Guards}
-Die Seitennavigation kann bei Angular, so wie es auch in diesem Projekt der Fall ist, mittels \acs{URL}-Routen festgelegt werden. Sobald dann eine bestimmte \acs{URL} aufgerufen wird, wird eine vordefinierte Komponente angezeigt. Damit manche Routen nur unter bestimmten Umständen erreicht werden können, kann man Guards verwenden. Diese prüfen dann beim Aufrufen einer Route, ob die benötigten Bedingungen erfüllt sind und leitet den Nutzer nur dann wirklich weiter. In dieser Anwendung kommt beispielsweise für die Login-Funktionalität ein Guard zum Einsatz.
+Die Seitennavigation kann bei Angular, so wie es auch in diesem Projekt der Fall ist, mittels \acs{URL}-Routen festgelegt werden. Sobald dann eine bestimmte \acs{URL} aufgerufen wird, wird eine vordefinierte Komponente angezeigt. Damit manche Routen nur unter bestimmten Umständen erreicht werden können, kann man Guards verwenden. Diese prüfen dann beim Aufrufen einer Route, ob die benötigten Bedingungen erfüllt sind und leitet den Nutzer nur dann wirklich weiter. In dieser Anwendung kommt beispielsweise für die Login-Funktionalität ein Guard zum Einsatz. \cite{OWA18}
 
 \subsubsection{Module}
-Angular-Module fassen eine inhaltlich sinnvoll vom Rest der Anwendung getrennte Sammlung von Programmelementen wie zum Beispiel Components oder Services zusammen. Services und Guards, welche innerhalb des Moduls mittels dependency injection erhalten können werden sollen, müssen im entsprechenden Modul angegeben werden. In dieser Anwendung gibt es neben dem Routing-Module (dazu später mehr) nur ein richtiges Module, welches Komponenten und Services bündelt, das App-Module.
+Angular-Module fassen eine inhaltlich sinnvoll vom Rest der Anwendung getrennte Sammlung von Programmelementen wie zum Beispiel Components oder Services zusammen. Services und Guards, welche innerhalb des Moduls mittels dependency injection erhalten können werden sollen, müssen im entsprechenden Modul angegeben werden. In dieser Anwendung gibt es neben dem Routing-Module (dazu später mehr) nur ein richtiges Module, welches Komponenten und Services bündelt, das App-Module. \cite{OWA18}
 
 \section{Bausteine}
 Hier werden in kurzer Form alle von uns erzeugten Bausteine des Front-Ends vorgestellt und erläutert.
@@ -124,8 +124,6 @@ Bei der Klasse AuthGuard handelt es sich um eine Implementierung des \glqq{}canA
 \subsection{Model-Interfaces}
 In der folgenden Tabelle \ref{tab:model_interfaces} werden die in der Anwendung verwendeten Model-Interfaces aufgelistet und beschrieben.
 
-\newpage
-
 \begin{table}[]
 	\begin{tabular}{|p{.2\textwidth}|p{.2\textwidth}|p{.55\textwidth}|}
 		\hline
@@ -160,8 +158,6 @@ In der folgenden Tabelle \ref{tab:model_interfaces} werden die in der Anwendung 
 	\caption{Beschreibung der Model-Interfaces}
 	\label{tab:model_interfaces}
 \end{table}
-
-\newpage
 
 \section{Komponenten-Service-Diagramm}
 In der folgenden Abbildung \ref{fig:komponenten_service_diagramm} wird der Aufbau des Front-Ends im Bezug auf seine Komponenten und deren Nutzung von Services dargestellt. 
