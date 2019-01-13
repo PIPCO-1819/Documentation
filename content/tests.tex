@@ -1,18 +1,16 @@
 \chapter{Tests}
-Diese Testdokumentation wurde erstellt, um die Herangehensweise, Durchführung sowie die Ergebnisse unseres Testprozesses festzuhalten.
+Diese Testdokumentation wurde erstellt, um die Herangehensweise, Durchführung sowie die Ergebnisse unseres Testprozesses festzuhalten. 
 
-\section{Testplan}
+\section{Ziele}
+Ziel unseres Testprozesses ist es garantieren zu können, dass die in diesem Projekt geschaffene Software unter den von uns festgelegten Vorraussetzungen annähernd bis vollständig fehlerfrei und mit möglichst guter Performance betrieben werden kann. Auffälligkeiten sowie nach dem Testprozess bekannte und nicht behobene Fehler sollen am Ende des Testprozesses dokumentiert sein.
 
-\subsection{Ziele}
-Ziel unseres Testprozesses ist es garantieren zu können, dass die in diesem Projekt geschaffene Software unter den von uns festgelegten Vorraussetzungen annähernd bis vollständig fehlerfrei und mit möglichst guter Performance betrieben werden kann. Auffälligkeiten sowie nach dem Testprozess bekannte und unbehobene Fehler sollen am Ende des Testprozesses dokumentiert sein.
+\section{Rahmenbedingungen}
+Grundsätzlich wurde während der Entwicklung der Anwendung stets darauf geachtet, dass die jeweils neu implementierten Features einwandfrei funktionieren und auch, dass durch die Implementierung jener Features keine der zuvor vorhandenen Teile beschädigt werden. Dennoch haben wir in unserer Projektplanung eine gesonderte Testphase geplant, bei der wir im Zeitraum von zwei Wochen alle nötigen Schritte abschließen möchten, um die von uns erstellte Anwendung ausgiebig zu testen. In dieser zweiwöchigen Testphase soll der Testprozess vollständig abgeschlossen werden. Alle einzelnen Tests von Fron-End sowie Back-End wurden dabei jeweils in der selben Testumgebung durchgeführt.
 
-\subsection{Rahmenbedingungen}
-Grundsätzlich wurde während der Entwicklung der Anwendung stets darauf geachtet, dass die jeweils neu implementierten Features einwandfrei funktionieren und auch, dass durch die Implementierung jener Features keine der zuvor vorhandenen Teile beschädigt werden. Dennoch haben wir in unserer Projektplanung eine gesonderte Testphase geplant, bei der wir im Zeitraum von zwei Wochen alle nötigen Schritte abschließen möchten, um die von uns erstellte Anwendung ausgiebig zu testen. In dieser zweiwöchigen Testphase soll der Testprozess vollständig abgeschlossen werden.
+\section{Teststrategie}
+Um unser Testziel zu erreichen greifen wir auf verschiedene Testmethoden zurück. Da die Testphase sowohl durch einen kurzen Zeitraum, als auch die Anzahl der Tester eingeschränkt ist, müssen wir diese Ressourcen bestmöglich nutzen. Nach längeren Diskussionen innerhalb des Entwicklungsteams haben wir uns dazu entschlossen, auf eine Kombination von automatisierten Unit-Tests, manuellen System- und UI-Tests, sowie Last-Test zu setzen. Auf diese Weise decken wir beim Testen nicht nur funktionale sondern auch qualitative Anforderungen der Software ab.
 
-\subsection{Teststrategie}
-Um unser Testziel zu erreichen greifen wir auf verschiedene Testmethoden zurück. Da die Testphase sowohl durch einen kurzen Zeitraum, als auch die Anzahl der Tester eingeschränkt ist, müssen wir diese Ressourcen bestmöglich nutzen. Nach längeren Diskussionen innerhalb des Entwicklungsteams haben wir uns dazu entschlossen, auf eine Kombination von automatisierten Unit-Tests, manuellen System- und UI-Tests, sowie Last-Test zu setzen. Auf diese Weise decken wir beim Testen nicht nur funktionale sondern auch nichtfunktionale Anforderungen der Software ab.
-
-Welche Methodik bei den einzelnen Teilen der Anwendung verwendet wurde wird in der folgenden Tabelle dargestellt.
+Welche Methodik bei den einzelnen Teilen der Anwendung verwendet wurde wird in der folgenden Tabelle \ref{testarten_software} dargestellt.
 
 \begin{table}[]
 	\begin{tabular}{|l|l|}
@@ -20,9 +18,10 @@ Welche Methodik bei den einzelnen Teilen der Anwendung verwendet wurde wird in d
 		\textbf{Testobjekt} & \textbf{Art des Testens} \\ \cline{1-2}
 		Front-End           & \begin{tabular}[c]{@{}l@{}}Unit-Tests,\\ Manuelle Tests\end{tabular} \\ \cline{1-2}
 		Back-End            & \begin{tabular}[c]{@{}l@{}}Unit-Tests.\\ Manuelle Tests\end{tabular} \\ \cline{1-2}
-		Gesamtsystem        & Manuelle Tests \\ \cline{1-2}
+		Gesamtsystem        & \begin{tabular}[c]{@{}l@{}}Manuelle Tests,\\ Last-Tests\end{tabular} \\ \cline{1-2}
 	\end{tabular}
 \caption{Testarten der unterschiedlichen Softwareteile}
+\label{testarten_software}
 \end{table}
 
 Trotz dessen, dass wir eine eigene Testphase geplant haben, ist es uns wichtig über den gesamten Entwicklungsprozess der Software für eine stets einwandfrei lauffähige Anwendung zu sorgen. Dies entspricht nicht nur unserem agilen Softwareentwicklungsprozess nach Scrum, sondern erleichtert auch die gemeinsame Arbeit durch mehrere Entwickler jeweils an Front-End sowie Back-End. Um dies gewährleisten zu können, haben wir abseits der Testphase jedes neu implementierte Feature sowie die Auswirkungen der Implementierung auf den Rest der Anwendung manuell getestet.
@@ -38,7 +37,13 @@ Standardgemäß verwenden wir beim automatisierten Testen unseres Angular-Front-
 Nachdem das Projekt korrekt auf die in \ref{chapter_installation} Dargestellte Art und Weise installiert wurde und lauffähig ist, können die automatisierten Tests durch das Aufrufen eines Konsolenbefehls gestartet werden. Dazu muss im Projektordner ein Terminal geöffnet werden und der Befehl \glqq{}ng test\grqq ausgeführt werden.
 
 \subsubsection{Ergebnisse der Unit-Tests}
-HIER SCREENSHOT VON UNITTEST ERGEBNISSEN EINFÜGEN
+
+\begin{figure}[ht]
+	\flushright
+	\includegraphics[]{content/pictures/ErgebnisseAutomatisierteTestsFrontend.jpg}
+	\caption{Ergebnisse der automatisierten Front-End-Tests}
+	\label{fig:ergebnisse_autom_tests_frontend}
+\end{figure}
 
 
 \subsection{Manuelle Tests}
@@ -51,38 +56,37 @@ Vorraussetzung für alle Tests ist selbsterklärend, dass Front-End sowie Back-E
 
 Folgende Einstellungen waren bei den folgenden manuellen Tests vorhanden:
 
-\begin{table}[]
-	\begin{tabular}{|l|l|}
-		\cline{1-2}
-		\textbf{Einstellung} & \textbf{Wert} \\ \hline
-		
-		sensitivity & 0.0 \\ \hline
-		
-		brightness & 0.5 \\ \hline
-		
-		contrast & 1.0 \\ \hline
-		
-		global\_notify & true \\ \hline
-		
-		log\_enabled & true \\ \hline
-		
-		streamaddress & https://webcam1.lpl.org/axis-cgi/mjpg/video.cgi \\ \hline
-		
-		cliplength & 10 \\ \hline
-		
-		max\_logs & 20 \\ \hline
-		
-		max\_storagee & 1024 \\ \hline
-	\end{tabular}
-\caption{Eingestellte Werte vor jedem Test}
-\label{tab:eingestellte_werte_vor_tests}
-\end{table}
+\begin{longtable}{| p{.2\textwidth} | p{.6\textwidth} |}
+	\hline
+	\textbf{Einstellung} & \textbf{Wert} \\ \hline
 
-Bedeutung der Spalte C*: Der Test wurde in der zuvor genannten Version von Google Chrome erfolgreich durchgeführt.
+	sensitivity & 0.0 \\ \hline
+		
+	brightness & 0.5 \\ \hline
+		
+	contrast & 1.0 \\ \hline
+		
+	global\_notify & true \\ \hline
+		
+	log\_enabled & true \\ \hline
+		
+	streamaddress & https://webcam1.lpl.org/axis-cgi/mjpg/video.cgi \\ \hline
+		
+	cliplength & 10 \\ \hline
+		
+	max\_logs & 20 \\ \hline
+		
+	max\_storagee & 1024 \\ \hline
+	
+\caption{Eingestellte Werte vor jedem manuellen Test}
+\label{tab:eingestellte_werte_vor_tests}
+\end{longtable}
+
+Erklärung zur nachfolgenden Tabelle \ref{tab:manuelle_front_end_tests} der manuellen Front-End-Tests:\newline
+
+Bedeutung der Spalte C*: Der Test wurde in der zuvor genannten Version von Google Chrome erfolgreich durchgeführt.\newline
 
 Bedeutung der Spalte F*: Der Test wurde in der zuvor genannten Version von Mozilla Firefox erfolgreich durchgeführt.
-
-\newpage
 
 \newcounter{TestNumber}
 \begin{longtable}{| p{.02\textwidth} | p{.08\textwidth} | p{.25\textwidth} | p{.25\textwidth} | p{.25\textwidth} | p{.025\textwidth} | p{.025\textwidth} |}
