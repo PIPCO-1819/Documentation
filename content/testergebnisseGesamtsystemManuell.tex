@@ -1,0 +1,87 @@
+\chapter{Testergebnisse der manuellen Gesamtsystem-Tests}
+\label{anhang_ergebnisse_systemtests}
+
+Erklärung zur nachfolgenden Tabelle \ref{tab:manuelle_gesamtsystem_tests} der manuellen Gesamtsystem-Tests:\newline
+
+Bedeutung der Spalte B*: Der Test wurde in durchgeführt und bestanden.
+
+\vspace{0.5cm}
+
+\newcounter{SysTestNumber}
+\begin{longtable}{| p{.03\textwidth} | p{.28\textwidth} | p{.28\textwidth} | p{.28\textwidth} | p{.025\textwidth} |}
+	\hline
+	
+	\textbf{\#} & \textbf{Vorraussetzungen} & \textbf{Aktion} & \textbf{Erwartetes Ergebnis} & \textbf{B*} \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender befindet sich auf der Login-Seite und ist nicht eingeloggt. & Der Anwender versucht sich mit falschen Login-Daten einzuloggen (user: a und passwort: b). & Das Back-End erkennt die Login-Daten als falsch und sendet eine negative Antwort. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender befindet sich auf der Login-Seite und ist nicht eingeloggt. & Der Anwender versucht sich mit falschen Login-Daten einzuloggen (user: a und passwort: b). & Der Login schlägt fehl. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender befindet sich auf der Login-Seite und ist nicht eingeloggt. & Der Anwender versucht sich mit den richtigen Login-Daten einzuloggen (user: user und passwort: geheim). & Das Back-End erkennt die Login-Daten als richtig und sendet eine positive Antwort. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender befindet sich auf der Login-Seite und ist nicht eingeloggt. & Der Anwender versucht sich mit den richtigen Login-Daten einzuloggen (user: user und passwort: geheim). & Der Login erfolgt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wird eine neue Bewegung detektiert. & & Das Back-End erzeugt und speichert eine neue Aufnahme. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es wird eine neue Bewegung detektiert. & & Die erkannte Bewegung wird im im Output-Livestream hervorgehoben. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es wird eine neue Bewegung detektiert. & & Ein neuer Eintrag wird in der EventLogComponent angezeigt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wird eine neue Bewegung über 12 Sekunden detektiert. & & Das Back-End erzeugt und speichert eine neue Aufnahme mit einer Länge von nur 10 Sekunden. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wurden bereits 20 Aufnahmen gespeichert. Es wird eine neue Bewegung detektiert. & & Die neue Bewegung wird aufgezeichnet und gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wurden bereits 20 Aufnahmen gespeichert. Es wird eine neue Bewegung detektiert. & & Die älteste gespeicherte Aufzeichnung wird gelöscht. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wurden bereits 20 Aufnahmen gespeichert. Es wird eine neue Bewegung detektiert. & & Die älteste gespeicherte Aufzeichnung wird gelöscht. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender betätigt den Button zum Downloaden eines Backups. & Das Back-End erzeugt eine einwandfreie zip-Datei aller Konfigurations- und Logdateien. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender betätigt den Button zum Downloaden eines Backups. & Eine einwandfreie zip-Datei aller Konfigurations- und Logdateien wird über den Browser heruntergeladen. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. Es wird eine neue Bewegung detektiert. & & Die neue Aufnahme ist über die EventLogComponent abspielbar. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wird eine neue Bewegung detektiert. & & Zur neuen Aufnahme wurde eine neue einzigartige ID erzeugt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wird eine neue Bewegung detektiert. & & Alle registrierten E-Mails wurden benachrichtigt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Es wird eine neue Bewegung detektiert. Die E-Mail-Funktion wurde deaktiviert. & & Es wurden keine E-Mail-Benachrichtigungen versendet. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender fügt über die EmailNotificationComponent eine neue E-Mail-Adresse hinzu (test@test.com). & Die neue E-Mail-Adresse wurde richtig im Back-End gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender löscht eine gespeicherte E-Mail über die EmailNotificationComponent. & Im Back-End wird die richtige E-Mail erfolgreich aus dem Datenbestand gelöscht. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}sensitivity\grqq{} ganz nach rechts. & Im Back-End wird der neue Einstellungswert (1.0) korrekt gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}sensitivity\grqq{} ganz nach rechts. & Die neue Einstellung wirkt sich korrekt auf den Output-Livestream des Back-Ends aus. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}brightness\grqq{} ganz nach rechts. & Im Back-End wird der neue Einstellungswert (1.0) korrekt gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}brightness\grqq{} ganz nach rechts. & Die neue Einstellung wirkt sich korrekt auf den Output-Livestream des Back-Ends aus. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}contrast\grqq{} ganz nach rechts. & Im Back-End wird der neue Einstellungswert (1.0) korrekt gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Hauptseite. & Der Anwender verschiebt in der VideoSettingsComponent den Regler zur Einstellung \glqq{}contrast\grqq{} ganz nach rechts. & Die neue Einstellung wirkt sich korrekt auf den Output-Livestream des Back-Ends aus. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Die Funktion der Bewegungserkennung wurde deaktiviert. Es wird eine Bewegung detektiert. & & Es wird keine Aufnahme der erkannten Bewegung erzeugt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Die Funktion der Bewegungserkennung wurde deaktiviert. Es wird eine Bewegung detektiert. & & Die gespeicherten E-Mails werden nicht über die erkannte Bewegung in Kenntnis gesetzt. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Die Funktion der Bewegungserkennung wurde deaktiviert. Es wird eine Bewegung detektiert. & & Die erkannte Bewegung wird noch immer im Output-Livestream hervorgehoben. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}streamaddress\grqq{}. & Die neue Adresse wird korrekt im Back-End gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}streamaddress\grqq{}. Die neue Adresse verweist auf einen für die Anwendung brauchbaren Livestream. & Der Output-Livestream beinhaltet nun den Livestream der eingegebenen Adresse. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}streamaddress\grqq{}. Die neue Adresse verweist auf einen für die Anwendung  nicht brauchbaren Livestream. & Es werden keine neuen Frames über den Output-Livestream ausgegeben. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}cliplength\grqq{}. & Die neue Einstellung wird korrekt im Back-End gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}max\_logs\grqq{}. & Die neue Einstellung wird korrekt im Back-End gespeichert. & X \\ \hline
+	
+	\stepcounter{SysTestNumber}\arabic{SysTestNumber} & Der Anwender ist korrekt eingeloggt und befindet sich auf der Settings-Seite. & Der Anwender verändert und speichert die Einstellung \glqq{}max\_storage\grqq{}. & Die neue Einstellung wird korrekt im Back-End gespeichert. & X \\ \hline
+	
+	
+	\caption{Manuelle Gesamtsystem-Tests}
+	\label{tab:manuelle_gesamtsystem_tests}
+\end{longtable}
