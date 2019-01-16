@@ -1,8 +1,91 @@
 \chapter{Planung}
-\section{Rollenverteilung}
-\section{Anforderungen}
-\section{Meilensteine}
-\section{Architektur}
+\section{Organisation}
+\subsection{Kommunikation}
+\subsection{Rollenverteilung}
+\subsection{Tools und Technologien}
+\section{Spezifikation}
+\subsection{Anforderungsanalyse}
+Die Anforderungen für das Projekt haben wir nach dem Kick-Off Meeting mit dem Professor in einem Kollektiven Brainstorming gesammelt. Da bei diesem Projekt kein klassischer Kunde vorhanden ist, der die grundlegenden Anforderungen vorgibt, waren die Anforderungen recht flexibel und wir haben uns an einigen Referenzprodukten und deren Funktionsumfang orientiert.
+\subsection{Anforderungsdetails}
+\textbf{Bewegungserkennun}\newline
+Ein Videostream soll programmatisch auf Bewegungen überprüft werden. Die Überprüfung soll kleine Änderungen wie durch Wind bewegte Blätter und Kamerarauschen ignorieren und größere Bewegungen erkennen.
+\newline
+\textbf{Log}\newline
+Erkannte Bewegungen sollen in einem Log festgehalten und archiviert werden.
+Dabei soll der Zeitpunkt der Aufnahme, die Aufnahme selbst und ein dazugehörendes Thumbnail gespeichert werden. Der Log Wird automatisch erzeugt und kann durch manuelles löschen von Einträgen manipuliert werden.
+\newline
+\textbf{Aufnahmefunktion}\newline
+Wenn eine Bewegung erkannt wurde soll das System in der Lage sein den Videostream in einer persistenten Datei zu speichern.
+Die gespeicherten Aufnahmen müssen jederzeit abrufbar sein.
+In der Aufnahme sollen erkannte Bewegungen visuell hervorgehoben werden.
+\newline
+\textbf{E-Mailbenachrichtigungen}\newline
+Bei Einer erkannten Bewegung soll Das System in der Lage sein Automatisiert Eine E-Mailbenachrichtigung zu versenden.
+\newline
+\textbf{lokales Verfahren}\newline
+Die aufgezeichneten Daten sollen das lokale Netzwerk nicht verlassen.
+Alle Verfahrensschritte benutzen ausschließlich lokal ausgeführte Software.
+\newline
+\textbf{Videofeed}\newline
+Der live Videostream soll direkt angezeigt werden können.
+\newline
+\textbf{Backup}\newline
+Es soll die Möglichkeit die im Log gesammelten Daten als Datei zu exportieren.
+\newline
+\textbf{Einstellungsmöglichkeiten}\newline
+In der Weboberfläche sollen einige Benutzer spezifische Einstellungen für das Programm getroffen werden können.
+Diese umfassen: 
+\begin{itemize}
+\item Einstellen der Empfindlichkeit der Bewegungserkennung
+\item Bildkorrektureigenschaften wie Kontrast und Helligkeit
+\item Einstellen der Streamquelle
+\item Limit für die maximale Länge einer zusammenhängenden Aufnahme bei konstanter Bewegung
+\item Limits für das Backup (maximale Anzahl Dateien / Dateigröße)
+\item Login Daten ändern
+\item festlegen der E-Mailbenachrichtigungs Empfänger.
+\item Ein-/ausschalten des Logs
+\item Ein-/ausschalten der E-Mailbenachrichtigungen
+\end{itemize}
+\textbf{Weboberfläche}\newline
+Es soll eine Weboberfläche als Benutzerschnittelle geschaffen werden die alle Funktionen des Systems einem Anwender exponiert.
+Die Funktionen der Weboberfläche sind wie Folgt definiert:
+\begin{itemize}
+\item Der zugriff soll durch einen login mit Benutzernamen und Passwort geschützte geschützt werden werden.
+\item Der Livefeed der Kamera soll prominent auf der dargestellt werden.
+\item Der Log soll mit allen oben definierten Eigenschaften präsentiert werden.
+\item Aufnahmen sollen angesehen werden können
+\item Alle oben definierten Einstellungen sollen über die Weboberfläche manipuliert werden können.
+\item Möglichkeit ein Backup zu erstellen und herunterzuladen.
+\end{itemize}
+Es gab noch weitere Anforderungen die, wie sich später herausstellte, nicht realisierbar waren. Eine Gesichtserkennung, die wegen der geringen Qualität und Größe der Gesichter in der Aufnahme technisch nicht umsetzbar war.  Zuletzt eine Portierung auf einen Raspberry Pi, die wegen des hohen Leistungsanspruches der Software nicht umsetzbar war. Die Portierung des Produktivsystems erfolgt stattdessen auf einen lokalen Server.
+ 
+\subsection{User Stories}
+Als Benutzer möchte ich mich mit einem Benutzernamen und Password in die Weboberfläche einloggen, um sicherzustellen, dass nur autorisierte Benutzer Zugriff auf die Weboberfläche haben.
+\newline
+Als Benutzer möchte ich, dass ich Einstellung für die Software über die Weboberfläche ändern kann um das Softwareverhalten dynamisch zu beeinflussen.
+\newline
+Als Benutzer möchte ich meine Emailadresse zum Verteiler für Benachrichtigungen hinzufügen und wieder entfernen können, um so einfach wie möglich auf erkannte Bewegungen aufmerksam gemacht zu werden.
+\newline
+Als Benutzer möchte ich, Aufnahmen über die Weboberfläche einsehen können, um zu entscheiden, ob die erkannte Bewegung von einem unbefugten Zutritt herrührt.
+\newline
+Als Benutzer möchte ich den Überwachungs-Videostream über eine Weboberfläche einsehen können, um das Blickfeld der Kamera zu sehen.
+\newline
+Als Benutzer möchte ich, eine Übersicht über alle erfassten Ereignisse der Kamera mit Zeitstempel einsehen, um nach einem Event in einem gewissen Zeitraum zu suchen.
+\newline
+Als Benutzer möchte ich, dass meine Daten nicht auf den Servern von Drittanbietern gespeichert werden, um meine Privatsphäre zu schützen.
+\newline
+Als Benutzer möchte ich, die gesammelten Aufnahmedaten exportieren, um sie anderweitig zu verwenden.
+
+
+\subsection{Meilensteine}
+Die Termine der Meilensteine wurden an den Zweiwöchentlichen Meetings mit den Betreuern ausgerichtet. Einzige Ausnahme War Die Implementierungsphase, die Für die Basisimplementierung vier Wochen beansprucht hat. Somit ergeben sich Meilensteine für die, unter anderem im klassischen Wasserfallmodell, vorgegebenen Phasen Spezifikation, Entwurf, Implementierung und Test. Ein letzter, zusätzlicher Meilenstein für die abschließende Präsentation. Die Implementierungsphase war jedoch in  4 feingranulare Meilensteine aufgeteilt. Es wurden jeweils zwei Meilensteine für die Basisfunktionalität von Front- und Backend, und der jeweiligen Featureimplementierung aufgestellt. Diese sind auf die einzigen Meilensteine die parallelisiert bearbeitet werden konnten, da das Front- und Backend weitestgehend unabhängig bearbeitet werden können.
+\newline
+[Bild]
+\newline
+Die Meilensteine konnten im Projektverlauf ausnahmslos eingehalten werden und er gab keine Verschiebungen.
+
+\section{Entwurf}
+\subsection{Systemarchitektur}
 Bei dem ersten Treffen mit dem 'Kunden' wurde von uns eine Software zur Überwachung eines Raumes mithilfe einer herkömmlichen IP-Kamera gewünscht.
 Da hierfür auch eine Möglichkeit zur Interaktion mit dem System gegeben sein sollte, entschieden wir uns für eine Webseite, mit welcher
 der Videofeed sichtbar und Einstellungen vorgenommen werden sollten. Da die Software im Gegensatz zu anderen kommerziellen Produkten im lokalen Netz bleiben sollte,
@@ -68,3 +151,5 @@ Um den Ablauf besser nachvollziehen zu können wurde desweiteren ein Sequenzdiag
 	\caption{Ablauf Login und Änderungen}
 	\label{img:sequencediagram}
 \end{figure}
+
+\subsection{Rest Schnittstelle}
