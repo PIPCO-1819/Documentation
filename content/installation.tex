@@ -2,65 +2,108 @@
 \label{chapter_installation}
 
 \section{System}
-Die Installationsanweisungen wurden auf einem Ubuntu Server der Version 18.10 durchgeführt.\\
-Hierzu wurde ein bereits installiertes Image für VirtualBox von \\ \texttt{https://www.osboxes.org/ubuntu-server/} verwendet.
-  
+Die Installationsanweisungen wurden auf einem Ubuntu Server der Version 18.10 sowie auf Wunsch des Kunden auch auf Ubuntu 16.04 durchgeführt.\\
+Hierzu benötigte Images für Virtualbox können unter \\ \texttt{https://www.osboxes.org/ubuntu-server/} heruntergeladen werden.
+Die VM sollte über das Netzwerk erreichbar sein z.B. über die Netzwerkeinstellung \enquote{Bridge}.
+Des weiteren sollte darauf geachtet werden, dass genug Arbeitsspeicher (min. 4GB) sowie 4 Kerne der CPU zur Verfügung stehen.
+
 \section{Backend}
 Für das Backend muss OpenCV, sowie der Flask-Webserver mit allen notwendigen Modulen installiert werden.
 Die Lightweight Installation von OpenCV, welche einfach mit pip installiert werden kann, enthält nicht den passenden Encoder für mp4, weshalb der aktuelle Stand selbst geladen und compiliert werden muss.
-Hierzu kann folgende Anleitung verwendet werden:\\
-\texttt{https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/}
+\subsection{Verwendete Versionen}
+\begin{itemize}
+	\item OpenCV 3.1.0
+	\item Python 3.5.2
+	\item Flask 1.0.2
+	\item Flask-Cors 3.0.7
+\end{itemize}
+
+Für Ubuntu Server 18.10 wurde folgende Anleitung verwendet:\\
+\texttt{https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/}\\\\
+Für Ubuntu 16.04 wurde ein Installations-Skript basierend auf folgender Anleitung erstellt:\\
+\texttt{https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/}
+Dieses Skript ist innerhalb des Repositories zu finden, welches durch
+\begin{lstlisting}[frame=single]
+git clone https://github.com/PIPCO-1819/PIPCO-Backend.git
+\end{lstlisting}
+heruntergeladen werden kann.\\
+Anschließend wird das Installations-Skript ausgeführt.
+\begin{lstlisting}[frame=single]
+./install_opencv.sh
+\end{lstlisting}
+Das Skript lädt alle notwendigen Pakete, erstellt eine virtuelle Umgebung und compiliert und installiert anschließend OpenCV.\\
 Zusätzlich zur Installation von OpenCV muss Flask mit pip installiert werden.
 Hierzu muss wie in der Anleitung beschrieben .bashrc mit 
 \begin{lstlisting}[frame=single]
 source  ~/.bashrc
 \end{lstlisting}
-geladen werden.
-Anschließend kann mit
+ausgeführt werden.
+Daraufhin kann mit
 \begin{lstlisting}[frame=single]
 workon cv
-\end{lstlisting} in der Virtuellen Python-Umgebung gearbeitet bzw. flask wie folgt installiert werden:
+\end{lstlisting} in der Virtuellen Python-Umgebung gearbeitet bzw. Flask mit CORS-Unterstützung wie folgt installiert werden:
 \begin{lstlisting}[frame=single]
 pip install flask flask-cors
 \end{lstlisting}
-Nun muss nur noch das Repository ausgecheckt und ausgeführt werden.
+Zuletzt muss nur noch das Back-End innerhalb des Repositories ausgeführt werden.
 \begin{lstlisting}[frame=single]
-git clone https://github.com/PIPCO-1819/PIPCO-Backend
-cd PIPCO-Backend
-python Main.py
+python3 Main.py
 \end{lstlisting}
 
 \section{Frontend}
-Für das Frontend wird Node.js, npm, sowie Angular verwendet.
+\subsection{Verwendete Versionen}
+\begin{itemize}
+	\item angular/cli 7.2.3
+	\item npm 6.7.0
+	\item nodejs 8.15.0
+\end{itemize}
+Für das Frontend wird Node.js, npm, sowie Angular verwendet.\\
+Für Ubuntu 16.04 muss die Quelle für Node.js von Hand wie folgt aktualisiert und zuvor curl installiert werden:
 \begin{lstlisting}[frame=single]
-apt-get install npm nodejs
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install nodejs
+\end{lstlisting}
+Anschließend die aktuelle Version von npm sowie vom angular-cli installieren.
+\begin{lstlisting}[frame=single]
 sudo npm install -g npm@latest
 sudo npm install -g @angular/cli
 \end{lstlisting}
-Repository auschecken und restliche dependencies installieren:
+Nach der Installation muss noch der Owner angepasst werden.
+\begin{lstlisting}[frame=single]
+sudo chown -R $USER:$GROUP ~/.npm
+sudo chown -R $USER:$GROUP ~/.config
+\end{lstlisting}
+Repository auschecken und restliche Abhängigkeiten installieren:
 \begin{lstlisting}[frame=single]
 git clone https://github.com/PIPCO-1819/PIPCO-Frontend.git
 cd PIPCO-Frontend
 npm install
 \end{lstlisting}
-Anschließend den Server wie folgt starten:
+Nun muss die IP des Servers in /src/environments/environments.ts bei backendAddress eingetragen werden:\\
+\begin{lstlisting}[frame=single]
+...
+backendAdress: "http://192.168.0.125:8002",
+...
+\end{lstlisting}
+Zuletzt kann der Server wie folgt gestartet werden:
 \begin{lstlisting}[frame=single]
 ng serve --host 0.0.0.0
 \end{lstlisting}
 
 \section{Run on Startup}
+Für das Starten der Komponenten in einer eigenen Konsole wird \textbf{screen} verwendet, welches über apt-get installiert werden kann.\\
+Die erstellten Skripte müssen mit
+\begin{lstlisting}[frame=single]
+chmod +x skriptname.sh
+\end{lstlisting}
+ausführbar gemacht werden.\\\\
 start\_backend.sh in PIPCO-Backend
 \begin{lstlisting}[frame=single]
 #!/bin/sh
-printf "<LOGIN>\n<PASSWORD>\n" | \
-/home/osboxes/.virtualenvs/cv/bin/python Main.py
-\end{lstlisting}
-
-start\_frontend.sh in PIPCO-Frontend
-\begin{lstlisting}[frame=single]
-#!/bin/sh
-printf "<LOGIN>\n<PASSWORD>\n" | \
-/home/osboxes/.virtualenvs/cv/bin/python Main.py
+printf "<MAIL_LOGIN>\n<PASSWORD>\n" | \
+/home/<USER>/.virtualenvs/cv/bin/python3 Main.py
 \end{lstlisting}
 
 start\_frontend.sh in PIPCO-Frontend
@@ -73,9 +116,9 @@ start\_pipco.sh
 \begin{lstlisting}[frame=single]
 #!/bin/bash
 screen -dmS frontend bash -c \
-'cd /home/osboxes/PIPCO-Frontend; ./start_frontend.sh'
+'cd /home/<USER>/PIPCO-Frontend; ./start_frontend.sh'
 screen -dmS backend bash -c \
-'cd /home/osboxes/PIPCO-Backend;. start_backend.sh'
+'cd /home/<USER>/PIPCO-Backend;. start_backend.sh'
 \end{lstlisting}
 
 rc.local bei Start des Systems ausführen
@@ -86,6 +129,6 @@ sudo chmod +x /etc/rc.local
 Skript zu rc.local hinzufügen
 \begin{lstlisting}[frame=single]
 ...
-/home/osboxes/start_pipco.sh
+/home/<USER>/start_pipco.sh
 exit 0
 \end{lstlisting}

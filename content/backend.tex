@@ -46,3 +46,14 @@ welcher jedoch zu minimalisisch und dadurch für die Anwendung ungeeignet war. A
 und auf diese Ressourcen bestimmte Funktionen registriert werden können. Am einfachsten ginge das mit Annotationen, wenn der Webserver als eigenes Programm läuft. Dies war in unserem Szenario jedoch nicht gegeben, weshalb der Webserver als Klasse definiert und die Pfade innerhalb des Konstruktors hinzugefügt wurden.\\
 Der Webserver holt sich durch Anfragen die Daten vom Singleton-Objekt und sendet regelmäßig das aktuelle JPEG für den Videostream.
 Allerdings gilt zu beachten, dass der von uns verwendete Webserver nicht für Produktivsysteme gedacht ist.
+
+\section{Videoquelle}
+\subsection{Voraussetzung}
+Als Videoquelle bieten die meisten IP-Kameras die Bilder als MJPEG oder RTSP-Stream an.\\
+Beide Formate werden durch OpenCV und somit durch unsere Anwendung unterstützt.
+Ebenso kann OpenCV auch Videodateien unterschiedlicher Formate wie z.B. mp4 oder webm abspielen.
+Von einer Youtube-Url kann jedoch nicht gestreamt werden, da Youtube nicht das File direkt zur Verfügung stellt.\\
+Der Stream sollte mindestens 15 FPS zur Verfügung stellen, da wir somit auch den Median über den Zeitraum von etwa. einer Sekunde bilden. Wenn der Stream weniger Bilder sendet, wird der Median über einen längeren Zeitraum gebildet und somit ändert sich das Verhalten der Bilderkennung.
+
+\subsection{Auflösung}
+Aufgrund der o.g. Performanceprobleme ist die Verwendung einer höheren Auflösung ein großes Problem.\\ Für die Verwendung einer einfachen Bewegungserkennung reicht die Auflösung von 640x368 aus, jedoch erreichen wir selbst hierbei je nach Rechner nur ca. 20 FPS.
