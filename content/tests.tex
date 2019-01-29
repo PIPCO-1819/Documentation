@@ -164,3 +164,36 @@ Bei den manuellen Systemtests wurde die Anwendung - wie es der Endanwender auch 
 Alle manuellen Tests des Gesamtsystems inklusive deren Ergebnisse können im Anhand B eingesehen werden.
 
 \subsection{Lasttests}
+
+Zusätzlich wurde das System mit verschiedenen Lasttests geprüft, die das Verhalten und die Performance unter verschiedenen Extrembedingungen testen sollten.
+\subsubsection{Stream Videoauflösung}
+In diesem Test wurden verschiedene Auflösungen des Videostreams mit deren Auswirkung auf die Berechnungszeit der Bewegungserkennung pro Bild ermittelt. Getestet wurde auf verschieden Systemen (Laptop/PC). Die Performance skaliert wie zu erwarten war sowohl mit der Leistung des Hostsystems, als auch mit der Anzahl an Pixeln, des Videostreams. Dabei ist zu beachten, dass, da der Prozess hauptsächlich einen einzelnen Kern belastet, die Anzahl der zur Verfügung stehenden Rechenkerne zu vernachlässigen ist.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{content/pictures/last_test_aufloesung.png}
+	\caption{Lasttest: Auflösungen}
+	\label{img:test_resolution}
+\end{figure}
+
+Das Ergebnis des Tests ist, dass sich die Performace linear zur Anzahl der Pixel verhält und diese wiederum, bei linearer Steigerung der Auflösung, exponentiell wächst. Weiter konnten wir herausfinden, dass die Leistung bis zu einer Auflösung von 720p, auch mit laptop Hardware, noch im akzeptablen Bereich liegt. Alle höheren Auflösungen benötigen sehr starke Hardware, um akzeptable Bildraten zu erreichen. Bei einer Auflösung von 4k, welche sicher außerhalb der Spezifikation einer Überwachungskamera liegt, kam es sogar nach einiger Zeit zu Abstürzen.
+
+\subsubsection{Dateigrößen Backup}
+Beim Erstellen eines Backups werden alle gesammelten Daten zusammengefasst und zum Download angeboten. Diese Lasttest soll die Abhängigkeit der benötigten Zeit zum erstellen eines eines solchen Backups mit der Dateigröße ermitteln.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{content/pictures/last_test_backup.png}
+	\caption{Lasttest: Backup}
+	\label{img:test_files}
+\end{figure}
+
+Die benötigte Zeit zum erstellen des Backups steigt wie erwartet linear mit der Dateigröße, und es gibt keinen Limitierenden Faktor, wie zum Beispiel limitierter Arbeitsspeicher.
+
+\subsubsection{Aufnahmen}
+Auch die Aufnahmen wurden auf Anomalien unter extremen Bedingungen untersucht.\newline 
+So wurden beispielsweise eine Aufnahmedatei mit mehr als 5GB getestet. Diese verursachte keinerlei Probleme.\newline
+
+Als zweiten Test haben wir mehr als 500 einzelne Aufnahmen getestet. Auch hierbei gab es keine Probleme, jedoch stellte sich heraus, dass die Weboberfläche nicht optimal zum navigieren einer solchen Anzahl an Einträgen geeignet ist.
+
+

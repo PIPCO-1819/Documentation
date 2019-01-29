@@ -1,13 +1,110 @@
 \chapter{Planung}
 \section{Organisation}
-\subsection{Kommunikation}
+\subsection{Vorgehensweise und Kommunikation}
+Zur Planung des Projekts haben wir uns von der agilen Softwareentwicklung und dem Scrum Prinzip inspirieren lassen. Ähnlich wie in Scrum haben wir Regelmäßige Treffen mit sogenannten Sprints verbunden. In den Treffen werden anhand des Projektplans oder Backlogs Aufgaben besprochen und für den Zeitraum bis zum nächsten Treffen entsprechend aufgeteilt. Die Treffen fanden wöchentlich Montags statt. Die Treffen wurden von einem sogenannten 'Srcum-Master' kuratiert, dieser achtet darauf, das die Besprechungen sachlich bleiben, dass jedes Teammitglied einen Statusbericht abgibt und dass anstehende Probleme und Aufgaben zugewiesen werden. Die Zeit zwischen den Meetings werden als Sprint bezeichnet und dienen dazu die zugewiesenen Aufgaben zu erledigen. Im reinen Scrum Modell gibt es zusätzlich noch Tägliche Meetings, die aber im Rahmen des Semesterprojektis nicht realisierbar waren. Die Kommunikation während des Sprints erfolgte Hauptsächlich über den Instant-Messenger WhatsApp. Bei Bedarf gab es auch noch weitere spontan organisierte Treffen um diverse Probleme zu besprechen und sich gegenseitig zu helfen. 
+
 \subsection{Rollenverteilung}
+Zu allen Aufgabenbereichen des Projekts wurden Rollen erstellt und jeweils zwei Teammitglieder zugeordnet, ein Hauptverantwortlicher und ein Stellvertreter. Die so verteilten Rollen sollten somit einen Verantwortlichen für jeden Aspekt des Projekts bestimmen, damit bei Problemen oder nachfragen immer eine Ansprechperson gefunden werden kann.
+
+\begin{longtable}[]{|p{.135\textwidth}|p{.17\textwidth}|p{.195\textwidth}|p{.235\textwidth}|p{.22\textwidth}|}
+\cline{1-5}
+\textbf{Rolle} & \textbf{Beschreibung} &\textbf{Qualifikationen} & \textbf{Verantwortlichkeit} & \textbf{Person} \\ \hline
+
+Projektleiter & 
+Operative Planung und Steuerung des Projekts & 
+Beherrschen der Projektmanagementinstrumente /
+Führen der Gruppe &
+Erreichen der Sach- und Terminziele &
+1. Kevin Hertfelder
+2. Florian Hauger \\ \hline
+
+Dokumenta- tionsbeauftragter &
+Dokumentation verwalten /
+Zusammentragen /
+Protokolle schreiben &
+Latexerfahren &
+Vollständigkeit und Termineinhaltung der Dokumentationsabgabe &
+1. Daniel Petrusic
+2. Florian Hauger \\ \hline
+
+Koordinator &
+Koordiniert Meetings und sonstige Termine &
+&
+Termineinhaltung der Meetings &
+1. Patrick Kroner
+2. Kevin Hertfelder \\ \hline
+
+Architekt / Integrator &
+Erstellt Architektur, definiert Schnittstellen & 
+Kenntnisse über Software Entwurfsmuster &
+Einhaltung der Architektur & 
+1. Florian Hauger
+2. Kevin Hertfelder \\ \hline
+
+Testverant- wortlicher &
+Prüft Testabdeckung & 
+Testerfahren &
+Korrekte Tests &
+1. Daniel Petrusic
+2. Patrick Kroner \\ \hline
+
+OpenCV Verantwortlicher &
+Implementiert und plant Open CV Funktionalität &
+Gute Einarbeitung in OpenCV /
+Erfahrung mit Python &
+OpenCV Funktionalität &
+1. Patrick Kroner
+2. Florian Hauger  \\ \hline
+
+Webober- flächen Verantwortlicher &
+Implementiert und plant Weboberfläche &
+Erfahrung mit Angular und Webtechnologien &
+Funktionsumfang und Funktionalität der Weboberfläche &
+1. Daniel Petrusic
+2. Kevin Hertfelder  \\ \hline
+
+Software- kommunikation und Schnittstellenbeauftragter &
+Sorgt für Kommunikation der Softwaremodule &
+&
+Kommunikation zwischen Kamera und Python /
+Kommunikation zwischen Weboberfläche und Python &
+1. Kevin Hertfelder
+2. Florian Hauger  \\ \hline
+
+System- admin &
+Kümmert sich um Ressourcen /
+Richtet notwendige Dienste ein &
+&
+Ressourcen für Entwicklung vorhanden &
+1. Florian Hauger
+2. Patrick Kroner  \\ \hline
+
+\caption{Rollenverteilung}
+\label{tab:rollenverteilung}
+\end{longtable}
+
+
+
+
 \subsection{Tools und Technologien}
+Die Zentrale Bibliothek für das Projekt ist OpenCV, diese ist Open Source und ermöglicht es digitale Bildbearbeitung und Analyse einfach und effizient durchzuführen, in unserem Fall war dies notwendig um die Bewegung in einem Videostream zu erkennen. \newline
+OpenCV gibt es für mehrere Sprachen, die am besten unterstützten Sprachen sind jedoch C++ und Python. C++ hätte einen Prerformance Vorteil gebracht, hätte aber etwas komplizierteren Syntax verlangt. Auf Rat des Professors hin, haben wir uns  schlussendlich für die Python Variante entschieden. \newline
+Für die Weboberfläche, haben wir das ebenfalls mit der Open Source Lizenz vertriebene Framework Angular ausgewählt, da dieses modernen Frontentwicklung mit einfacher Datenbindung erlaubt.\newline
+Die Sprache der Wahl für die Entwicklung eises Angular Clienten ist Typescript, welche ein Javascript Dialekt ist.\newline
+Für die Revisionssicherheit des Projekts wurden drei Git Projekte angelegt.
+Die drei Projekte teilten Das Gesamtprojekt in Frontend, Backend und Dokumentation auf. Diese klare Trennung erleichterte paralleles arbeiten am Projekt. Als Hostingprovider für diese Repositories wurde Github gewählt.\newline
+Die vewendete Entwicklungsumgebung wurde allen Teammitgliedern frei gestellt und es wurde dann für die Entwicklung am Backend für Python PyCharm von IntelliJ verwendet. Das Typescript Frontend wurde mit Microsoft Visual Studio Code entwickelt.\newline
+für die Planung der REST-Schnittstelle haben wir Swagger verwendet.\newline
+Für Den Projektplan haben wir Microsoft Projekt verwendet, da wir dieses schon im  Modul Projektmanagement kennen gelernt haben.\newline
+Für die Erstellung der Teilpräsentationen wurde Microsoft Powerpoint verwendet.\newline
+Schaubilder und Diagramme haben wir mit Microsoft Visio erstellt.\newline
+Die Plakate für die Abschlussmesse haben wir mit den Grafikprogramm Gimp entworfen.\newline
+
 \section{Spezifikation}
 \subsection{Anforderungsanalyse}
 Die Anforderungen für das Projekt haben wir nach dem Kick-Off Meeting mit dem Professor in einem Kollektiven Brainstorming gesammelt. Da bei diesem Projekt kein klassischer Kunde vorhanden ist, der die grundlegenden Anforderungen vorgibt, waren die Anforderungen recht flexibel und wir haben uns an einigen Referenzprodukten und deren Funktionsumfang orientiert.
 \subsection{Anforderungsdetails}
-\textbf{Bewegungserkennun}\newline
+\textbf{Bewegungserkennung}\newline
 Ein Videostream soll programmatisch auf Bewegungen überprüft werden. Die Überprüfung soll kleine Änderungen wie durch Wind bewegte Blätter und Kamerarauschen ignorieren und größere Bewegungen erkennen.
 \newline
 \textbf{Log}\newline
@@ -60,28 +157,36 @@ Die Funktionen der Weboberfläche sind wie Folgt definiert:
 Es gab noch weitere Anforderungen die, wie sich später herausstellte, nicht realisierbar waren. Eine Gesichtserkennung, die wegen der geringen Qualität und Größe der Gesichter in der Aufnahme technisch nicht umsetzbar war.  Zuletzt eine Portierung auf einen Raspberry Pi, die wegen des hohen Leistungsanspruches der Software nicht umsetzbar war. Die Portierung des Produktivsystems erfolgt stattdessen auf einen lokalen Server.
  
 \subsection{User Stories}
+\begin{itemize}
+\item
 Als Benutzer möchte ich mich mit einem Benutzernamen und Password in die Weboberfläche einloggen, um sicherzustellen, dass nur autorisierte Benutzer Zugriff auf die Weboberfläche haben.
-\newline
+\item
 Als Benutzer möchte ich, dass ich Einstellung für die Software über die Weboberfläche ändern kann um das Softwareverhalten dynamisch zu beeinflussen.
-\newline
+\item
 Als Benutzer möchte ich meine Emailadresse zum Verteiler für Benachrichtigungen hinzufügen und wieder entfernen können, um so einfach wie möglich auf erkannte Bewegungen aufmerksam gemacht zu werden.
-\newline
+\item
 Als Benutzer möchte ich, Aufnahmen über die Weboberfläche einsehen können, um zu entscheiden, ob die erkannte Bewegung von einem unbefugten Zutritt herrührt.
-\newline
+\item
 Als Benutzer möchte ich den Überwachungs-Videostream über eine Weboberfläche einsehen können, um das Blickfeld der Kamera zu sehen.
-\newline
+\item
 Als Benutzer möchte ich, eine Übersicht über alle erfassten Ereignisse der Kamera mit Zeitstempel einsehen, um nach einem Event in einem gewissen Zeitraum zu suchen.
-\newline
+\item
 Als Benutzer möchte ich, dass meine Daten nicht auf den Servern von Drittanbietern gespeichert werden, um meine Privatsphäre zu schützen.
-\newline
+\item
 Als Benutzer möchte ich, die gesammelten Aufnahmedaten exportieren, um sie anderweitig zu verwenden.
+\end{itemize}
+
+\subsection{Projektplanung und Meilensteine}
+Die Termine der Meilensteine wurden an den Zweiwöchentlichen Meetings mit den Betreuern ausgerichtet. Einzige Ausnahme war die Implementierungsphase, die für die Basisimplementierung vier Wochen beansprucht hat. Somit ergeben sich Meilensteine für die, unter anderem im klassischen Wasserfallmodell, vorgegebenen Phasen Spezifikation, Entwurf, Implementierung und Test. Ein letzter, zusätzlicher Meilenstein für die abschließende Präsentation und Abgabe. Die Implementierungsphase war jedoch in  drei feingranulare Meilensteine aufgeteilt. Es wurden zwei Meilensteine für die Basisfunktionalität von Front- beziehungsweise Backend und die Featureimplementierung aufgestellt. Arbeit an den Meilensteinen von Front- und Backend konnten parallel bearbeitet werden. Zur Gewichtung der Projektphasen war uns bewusst, dass im Idealfall mehr Zeit für die Spezifikation und den Entwurf nötig gewesen wäre, jedoch war in der begrenzten Zeit die dem Semesterprojekt zur Verfügung stand die Implementierung im Vordergrund und nimmt in unserem Fall ungefähr die Hälfte der Gesamtzeit in Anspruch.
+\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{content/pictures/Phasen_Diagramm.png}
+	\caption{Meilensteindiagramm}
+	\label{img:milestone}
+\end{figure}
 
 
-\subsection{Meilensteine}
-Die Termine der Meilensteine wurden an den Zweiwöchentlichen Meetings mit den Betreuern ausgerichtet. Einzige Ausnahme War Die Implementierungsphase, die Für die Basisimplementierung vier Wochen beansprucht hat. Somit ergeben sich Meilensteine für die, unter anderem im klassischen Wasserfallmodell, vorgegebenen Phasen Spezifikation, Entwurf, Implementierung und Test. Ein letzter, zusätzlicher Meilenstein für die abschließende Präsentation. Die Implementierungsphase war jedoch in  4 feingranulare Meilensteine aufgeteilt. Es wurden jeweils zwei Meilensteine für die Basisfunktionalität von Front- und Backend, und der jeweiligen Featureimplementierung aufgestellt. Diese sind auf die einzigen Meilensteine die parallelisiert bearbeitet werden konnten, da das Front- und Backend weitestgehend unabhängig bearbeitet werden können.
-\newline
-[Bild]
-\newline
 Die Meilensteine konnten im Projektverlauf ausnahmslos eingehalten werden und er gab keine Verschiebungen.
 
 \section{Entwurf}
