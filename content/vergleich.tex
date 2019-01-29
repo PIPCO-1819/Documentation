@@ -1,0 +1,28 @@
+\chapter{Kommerzielle Produkte im Vergleich}
+Für die Ideenfindung und den Vergleich unseres Projektes wurden uns folgende Produkte für eine Smarthome-Überwachung zur Verfügung gestellt:
+
+\begin{itemize}
+	\item Netatmo Welcome
+	\item Withings Home HD
+	\item Doorbird D101
+	\item Logitech Circle
+\end{itemize}
+
+\section{Vorstellung}
+
+Alle Produkte nehmen in Full-HD  auf und sind ausschließlich über die Cloud verfügbar. Des weiteren haben alle genannten Produkte eine Weitwinkelkamera, wodurch der Bereich der Überwachung vergrößert wird.
+
+\subsection{Netatmo Welcome}
+Die Netatmo Welcome Kamera an die Cloud angebunden und nur darüber verfügbar, jedoch bleiben Aufnahmen lokal auf einer SD-Karte. Erst bei einer Anfrage durch den Client werden diese Aufnahmen an den Server gesendet, welcher diese an den Client weiterleitet. Die Aufnahme wird durch Bewegungen oder Geräusche ausgelöst. Für den Livestream ergibt sich eine Latenz von etwa 10-15 Sekunden. Erstaunlich gut funktioniert die Gesichtserkennung, welche lokal auf der Kamera durchgeführt wird. Wenn die Gesichter getagt sind, kann z.B. geprüft werden wer gerade zu Hause ist, bzw. nur bei unbekannten Gesichtern wird man benachrichtigt. Erkannte Gesichter werden allerdings im Netatmo-Account und somit auf einem externen Server gespeichert.
+
+\subsection{Withings Home HD}
+Die Withings Home HD bietet ähnlich wie die Netatmo Welcome die Erkennung von Bewegungen und Geräuschen. Die Kamera bietet keine Gesichtserkennung, stattdessen sind Sensoren für die Erkennung des Raumklimas verbaut. Der Hersteller wirbt außerdem mit einer geringen Latenz von unter einer Sekunde. Da Withings keinen internen Speicher verbaut, werden alle Aufnahmen in der Cloud gespeichert.
+
+\subsection{Doorbird D101}
+Dieses Produkt fällt bei dem Vergleich etwas heraus. Bei Doorbird handelt es sich um eine Klingel mit Gegensprechanlage und Kamera, welche vor der Haustüre angebracht werden soll. Bewegungen erkennt dieses Produkt durch einen Bewegungsmelder und nimmt diese auch auf. Standardmäßig werden hierbei alle Aufnahmen in der Cloud gespeichert, es gibt jedoch die Möglichkeit ein lokales NAS als Ziel einzutragen.
+
+\subsection{Logitech Circle}
+Die Logitech Circle ist die einzige Kamera welche auch durch Akku an stromlosen Orten für 4h platziert werden kann. Bis auf die Latenz welche hier bei etwa 5 Sekunden liegt und der HD-Ready-Auflösung, lässt sich dieses Produkt mit der Withings Home HD vergleichen. 
+
+\section{Vergleich}
+Unser Projektergebnis kann im Vergleich zu den kommerziellen Produkten mit nahezu jeder Netzwerkkamera verwendet werden. Außerdem gibt es bei ausreichend Performance des Rechners keine Latenz-Probleme. In den Bewertungen wird bei allen Produkten, welche die Daten direkt in der Cloud speichern zudem eine Unzuverlässigkeit beschrieben. Diese Problem ist nur bei der Netatmo Welcome und unserem System nicht gegeben. Dadurch, dass unser System lokal im Netz verfügbar ist, sind die Daten zwar sicher, jedoch möchte man auch Unterwegs nach der Benachrichtigung per Mail gerne wissen, ob nicht doch der Hund die Erkennung ausgelöst hat, bevor man in Panik gerät. Für unser System wäre zu späterem Zeitpunkt eine statische IP und eine eigene Domain notwendig um den Zugriff von Unterwegs zu ermöglichen. Für die Erkennung der Bewegung mag eine Auflösung von 640x368 ausreichen, jedoch bei der eventuell notwendigen Identifizierung der Person könnte dies schwierig werden. An dieser Stelle haben alle kommerziellen Produkte mit ihrer Auflösung noch einen Vorteil.
